@@ -21,7 +21,7 @@ import {
   ChevronRight,
   Settings,
   ScanLine,
-  Sparkles,
+  Lightbulb,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
@@ -118,14 +118,16 @@ export default function Home() {
                     <AvatarFallback>GK</AvatarFallback>
                   </Avatar>
                 </div>
-                <div className="mb-4 flex items-center gap-1">
-                  <div className="text-[20px] font-medium tracking-tight text-white">
-                    Suggestion
+                <div className="mb-4">
+                  <div className=" flex items-center gap-1">
+                    <div className="text-[20px] font-medium tracking-tight text-white">
+                      Suggestion
+                    </div>
+                    <Lightbulb className="h-5 w-5 text-amber-200" />
                   </div>
-                  <Sparkles
-                    fill="#ffffff"
-                    className="h-4 w-4 text-white opacity-60"
-                  />
+                  <p className="text-sm tracking-tight text-gray-400">
+                    Based on your recent activity
+                  </p>
                 </div>
                 <motion.div
                   whileTap={{ scale: 0.95 }}
@@ -178,6 +180,18 @@ export default function Home() {
                 </div>
                 <div className="relative mb-9 h-[366px]">
                   <Image
+                    src="/static/images/Apple.png"
+                    width={345}
+                    height={221}
+                    alt="Apple"
+                    className="absolute translate-y-[144px] rounded-[18px] shadow-sm"
+                    style={{
+                      boxShadow:
+                        '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
+                    }}
+                  />
+
+                  <Image
                     src="/static/images/Kakao.png"
                     width={345}
                     height={221}
@@ -199,18 +213,6 @@ export default function Home() {
                         '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
                     }}
                   />
-                  <Image
-                    src="/static/images/Apple.png"
-                    width={345}
-                    height={221}
-                    alt="Apple"
-                    className="absolute rounded-[18px] shadow-sm"
-                    style={{
-                      boxShadow:
-                        '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
-                    }}
-                  />
-
                   <Image
                     src="/static/images/AMEX.png"
                     width={345}
