@@ -324,7 +324,7 @@ export default function Home() {
                 {isCardActive ? (
                   <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    animate={{ opacity: 1, transition: { duration: 0.05 } }}
                     exit={{ opacity: 0, transition: { duration: 0.05 } }}
                     className="absolute inset-0 h-full w-full bg-gray-900"
                   ></motion.div>
