@@ -21,6 +21,7 @@ import {
   ChevronRight,
   Settings,
   ScanLine,
+  Sparkles,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
@@ -31,7 +32,6 @@ export default function Home() {
 
   const handleClick = () => {
     setIsToggled(!isToggled)
-    console.log(isToggled)
   }
 
   return (
@@ -67,7 +67,7 @@ export default function Home() {
               Wallet App
             </div>
             <div className="mb-4 text-sm tracking-tight text-slate-700">
-              Click the last card in the stack to see it move in spring motion.
+              Click the first card in the stack to see it move in spring motion.
             </div>
             <div className="flex items-center gap-2">
               <div className="rounded-md bg-slate-200 px-2 py-1 font-mono text-xs text-slate-600">
@@ -118,14 +118,37 @@ export default function Home() {
                     <AvatarFallback>GK</AvatarFallback>
                   </Avatar>
                 </div>
-                <div className="mb-6 flex items-center gap-4">
-                  <Button className="h-[56px] w-full rounded-[14px] bg-gray-700 text-lg tracking-tight hover:bg-gray-600">
-                    Send Money
-                  </Button>
-                  <Button className="h-[56px] w-full rounded-[14px] bg-gray-700 text-lg tracking-tight hover:bg-gray-600">
-                    hello world
-                  </Button>
+                <div className="mb-4 flex items-center gap-1">
+                  <div className="text-[20px] font-medium tracking-tight text-white">
+                    Suggestion
+                  </div>
+                  <Sparkles
+                    fill="#ffffff"
+                    className="h-4 w-4 text-white opacity-60"
+                  />
                 </div>
+                <motion.div
+                  whileTap={{ scale: 0.95 }}
+                  className="mb-6 flex items-center gap-4"
+                >
+                  <Button
+                    className="flex h-[56px] w-full gap-2 rounded-[14px] border border-gray-700 bg-gray-800 text-lg tracking-tight hover:bg-gray-600"
+                    style={{
+                      boxShadow:
+                        '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
+                    }}
+                  >
+                    <div>Send Money to</div>
+                    <Avatar className="h-[24px] w-[24px] cursor-pointer transition-opacity hover:opacity-80">
+                      <AvatarImage
+                        src="https://github.com/shadcn.png"
+                        alt="@shadcn"
+                      />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <div>Jiwon</div>
+                  </Button>
+                </motion.div>
                 <div className="mb-6 flex w-full items-center justify-between">
                   <span className="flex items-center gap-3">
                     <div className="text-[20px] font-medium tracking-tight text-white">
@@ -202,7 +225,7 @@ export default function Home() {
 
                   <motion.div
                     layoutId="chase-card"
-                    className="absolute cursor-pointer shadow-sm"
+                    className="absolute cursor-pointer"
                     onClick={() => setIsCardActive((s) => !s)}
                     whileTap={{ scale: 0.98 }}
                   >
