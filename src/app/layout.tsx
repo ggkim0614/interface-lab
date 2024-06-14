@@ -30,7 +30,7 @@ export default function RootLayout({
 export const metadata: Metadata = {
   title: {
     template: '%s | DKRM Studio',
-    default: 'DKRM Studio',
+    default: 'Sandbox',
   },
   description: 'Light shines brighter in the dark.',
 }
