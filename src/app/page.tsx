@@ -5,20 +5,46 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Bell, Bookmark, SquarePen, Plus, Menu } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 export default function Home() {
   const [isToggled, setIsToggled] = useState(false)
+  const [isCardActive, setIsCardActive] = useState(false)
 
   const handleClick = () => {
     setIsToggled(!isToggled)
     console.log(isToggled)
   }
+
   return (
     <div className="flex flex-col items-center bg-gray-100 text-3xl">
-      <div className="w-[600px]">
-        <section className="mb-8 items-center justify-center">
+      <div className="w-full max-w-[600px]">
+        <div className="mb-12 mt-6 ">
+          <span className="flex items-center gap-3">
+            <h2 className="font-semibold tracking-tight text-gray-900">
+              UI Playground
+            </h2>
+            <div className="flex items-center gap-1 rounded-md bg-blue-200 px-2 py-1 text-xs  font-semibold text-blue-500">
+              <motion.div
+                animate={{
+                  scale: [1.5, 1],
+                }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                }}
+                className="h-1 w-1 rounded-full bg-blue-500"
+              />
+              BETA
+            </div>
+          </span>
+          <p className="text-base tracking-tight text-gray-600">
+            Shelter for my experimental prototypes.
+          </p>
+        </div>
+
+        <section className="mb-24 items-center justify-center">
           <div className="pb-8">
             <div className="text-lg font-semibold tracking-tight text-slate-900">
               Wallet App
@@ -42,7 +68,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex h-[1200px] w-full items-center justify-center rounded-md border bg-white">
-            <div className="h-[998px] w-[393px] rounded-[24px] bg-gray-900">
+            <div className="h-[998px] w-[393px] rounded-[36px] bg-gray-900">
               <Image
                 src="/static/images/Status Bar.png"
                 width={393}
@@ -53,7 +79,7 @@ export default function Home() {
               <div className=" w-full px-6">
                 <div className="mb-6 flex h-full w-full items-center justify-between">
                   <Input
-                    className="w-[240px] rounded-[14px] border border-slate-600 bg-gray-700 text-lg text-gray-500"
+                    className="w-[240px] rounded-[14px] border border-slate-600 bg-gray-700 text-lg text-blue-200"
                     type="text"
                     placeholder="Search"
                   ></Input>
@@ -63,7 +89,7 @@ export default function Home() {
                     variant="ghost"
                     size="icon"
                   >
-                    <Bell className="w-6 text-white" />
+                    <Bell className="w-6 text-gray-500" />
                   </Button>
                   <Avatar className="w-10 cursor-pointer transition-opacity hover:opacity-80">
                     <AvatarImage
@@ -73,15 +99,16 @@ export default function Home() {
                     <AvatarFallback>GK</AvatarFallback>
                   </Avatar>
                 </div>
-                <div className="flex w-full items-center justify-between">
+                <div className="mb-6 flex w-full items-center justify-between">
                   <span className="flex items-center gap-3">
-                    <div className="text-[20px] font-medium text-white">
+                    <div className="text-[20px] font-medium tracking-tight text-white">
                       My Cards
                     </div>
-                    <div className="rounded-md bg-green-800 px-2 py-1 text-sm font-medium text-green-300">
+                    <div className="rounded-md bg-green-800 px-2 py-1 text-sm font-medium tracking-tight text-green-300">
                       5 Active
                     </div>
                   </span>
+
                   <span className="flex items-center">
                     <Button
                       className="rounded-[14px] hover:bg-gray-800"
@@ -99,12 +126,58 @@ export default function Home() {
                     </Button>
                   </span>
                 </div>
+                <div className="relative mb-9 h-[366px]">
+                  <Image
+                    src="/static/images/Apple.png"
+                    width={345}
+                    height={221}
+                    alt="Chase"
+                    className="absolute shadow-sm"
+                  />
+                  <Image
+                    src="/static/images/AMEX.png"
+                    width={345}
+                    height={221}
+                    alt="Chase"
+                    className="absolute translate-y-[36px] shadow-sm"
+                  />
+                  <Image
+                    src="/static/images/BOA.png"
+                    width={345}
+                    height={221}
+                    alt="Chase"
+                    className="absolute translate-y-[72px] shadow-sm"
+                  />
+
+                  <Image
+                    src="/static/images/Kakao.png"
+                    width={345}
+                    height={221}
+                    alt="Chase"
+                    className="absolute translate-y-[108px] shadow-sm"
+                  />
+
+                  <motion.div
+                    layout
+                    className="absolute cursor-pointer shadow-sm"
+                    animate={{ y: isCardActive ? 0 : 144 }}
+                    onClick={() => setIsCardActive((s) => !s)}
+                  >
+                    <Image
+                      src="/static/images/Chase.png"
+                      width={345}
+                      height={221}
+                      alt="Chase"
+                      className="pointer-events-none select-none"
+                    />
+                  </motion.div>
+                </div>
                 <div className="flex w-full items-center justify-between">
                   <span className="flex items-center gap-3">
-                    <div className="text-[20px] font-medium text-white">
+                    <div className="text-[20px] font-medium tracking-tight text-white">
                       Memberships
                     </div>
-                    <div className="rounded-md bg-green-800 px-2 py-1 text-sm font-medium text-green-300">
+                    <div className="rounded-md bg-green-800 px-2 py-1 text-sm font-medium tracking-tight text-green-300">
                       3 Active
                     </div>
                   </span>
@@ -114,7 +187,7 @@ export default function Home() {
                       variant="ghost"
                       size="icon"
                     >
-                      <Plus className="w-6 text-gray-500" />
+                      <Plus className="w-6 text-gray-500 " />
                     </Button>
                     <Button
                       className="rounded-[14px] hover:bg-gray-800"
@@ -208,6 +281,10 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
+        <footer className="flex w-full items-center justify-between py-8">
+          <div className="text-sm text-gray-500">Built with Next.js</div>
+          <div className="text-sm text-gray-500">©George Kim, 2024</div>
+        </footer>
       </div>
     </div>
   )
