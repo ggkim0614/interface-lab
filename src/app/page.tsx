@@ -440,7 +440,12 @@ export default function Home() {
                         </span>
                       </motion.div>
                       <motion.div
-                        exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { delay: 0.075 } }}
+                        exit={{
+                          opacity: 0,
+                          transition: { delay: 0.05, duration: 0.05 },
+                        }}
                         className="flex flex-col gap-6"
                       >
                         <div className="flex items-center justify-between">
