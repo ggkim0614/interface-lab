@@ -1,31 +1,5 @@
 'use client'
 
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import {
-  Bell,
-  Bookmark,
-  SquarePen,
-  Plus,
-  Menu,
-  ChevronLeft,
-  ChevronRight,
-  Settings,
-  ScanLine,
-  Lightbulb,
-} from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
-
 type SectionProps = {
   title: string
   description: string
