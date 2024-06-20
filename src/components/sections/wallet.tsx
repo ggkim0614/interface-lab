@@ -26,7 +26,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 export default function Wallet() {
-  const [isToggled, setIsToggled] = useState(false)
   const [isCardActive, setIsCardActive] = useState(false)
 
   return (

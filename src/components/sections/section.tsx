@@ -1,4 +1,5 @@
 'use client'
+import { cn } from '@/lib/utils'
 
 type SectionProps = {
   title: string
@@ -15,6 +16,10 @@ export default function Section({
   frameHeight,
   children,
 }: SectionProps) {
+  const heightVariant = {
+    400: `h-[400px]`,
+    1000: `h-[1000px]`,
+  } as any
   return (
     <section className="mb-24 items-center justify-center">
       <div className="pb-8">
@@ -36,7 +41,10 @@ export default function Section({
         </div>
       </div>
       <div
-        className={`flex h-[${frameHeight}px] w-full items-center justify-center rounded-md border bg-white`}
+        className={cn(
+          `flex w-full items-center justify-center rounded-md border bg-white`,
+          heightVariant[frameHeight]
+        )}
       >
         {children}
       </div>

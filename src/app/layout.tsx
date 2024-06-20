@@ -32,5 +32,5 @@ export const metadata: Metadata = {
     template: '%s | DKRM Studio',
     default: 'UI Playground',
   },
-  description: 'Light shines brighter in the dark.',
+  description: 'Shelter for experimental prototypes',
 }
