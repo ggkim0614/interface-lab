@@ -42,9 +42,9 @@ export default function Home() {
             </p>
           </span>
         </div>
+        <SearchInput />
         <Wallet />
         <DynamicDock />
-        <SearchInput />
         <footer className="flex w-full items-center justify-between py-8">
           <div className="text-xs text-gray-500">Built with Next.js</div>
           <div className="text-xs text-gray-500">©George Kim, 2024</div>
