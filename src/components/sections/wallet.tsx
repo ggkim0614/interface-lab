@@ -52,14 +52,15 @@ export default function Wallet() {
               type="text"
               placeholder="Search"
             ></Input>
-
-            <Button
-              className="rounded-[14px] hover:bg-gray-800"
-              variant="ghost"
-              size="icon"
-            >
-              <Bell className="w-6 text-gray-500" />
-            </Button>
+            <motion.div whileTap={{ scale: 0.95 }}>
+              <Button
+                className="rounded-[14px] hover:bg-gray-800"
+                variant="ghost"
+                size="icon"
+              >
+                <Bell className="w-6 text-gray-500" />
+              </Button>
+            </motion.div>
             <Avatar className="w-10 cursor-pointer transition-opacity hover:opacity-80">
               <AvatarImage
                 src="https://pbs.twimg.com/profile_images/1739171217431732224/8BG3LGat_400x400.jpg"
@@ -112,20 +113,24 @@ export default function Wallet() {
             </span>
 
             <span className="flex items-center">
-              <Button
-                className="rounded-[14px] hover:bg-gray-800"
-                variant="ghost"
-                size="icon"
-              >
-                <Plus className="w-6 text-gray-500" />
-              </Button>
-              <Button
-                className="rounded-[14px] hover:bg-gray-800"
-                variant="ghost"
-                size="icon"
-              >
-                <Menu className="w-6 text-gray-500" />
-              </Button>
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Button
+                  className="rounded-[14px] hover:bg-gray-800"
+                  variant="ghost"
+                  size="icon"
+                >
+                  <Plus className="w-6 text-gray-500" />
+                </Button>
+              </motion.div>
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Button
+                  className="rounded-[14px] hover:bg-gray-800"
+                  variant="ghost"
+                  size="icon"
+                >
+                  <Menu className="w-6 text-gray-500" />
+                </Button>
+              </motion.div>
             </span>
           </div>
           <div className="relative mb-9 h-[366px]">
@@ -200,20 +205,24 @@ export default function Wallet() {
               </div>
             </span>
             <span className="flex items-center">
-              <Button
-                className="rounded-[14px] hover:bg-gray-800"
-                variant="ghost"
-                size="icon"
-              >
-                <Plus className="w-6 text-gray-500 " />
-              </Button>
-              <Button
-                className="rounded-[14px] hover:bg-gray-800"
-                variant="ghost"
-                size="icon"
-              >
-                <Menu className="w-6 text-gray-500" />
-              </Button>
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Button
+                  className="rounded-[14px] hover:bg-gray-800"
+                  variant="ghost"
+                  size="icon"
+                >
+                  <Plus className="w-6 text-gray-500 " />
+                </Button>
+              </motion.div>
+              <motion.div whileTap={{ scale: 0.95 }}>
+                <Button
+                  className="rounded-[14px] hover:bg-gray-800"
+                  variant="ghost"
+                  size="icon"
+                >
+                  <Menu className="w-6 text-gray-500" />
+                </Button>
+              </motion.div>
             </span>
           </div>
           <div className="flex flex-col gap-6">
@@ -283,14 +292,16 @@ export default function Wallet() {
                   className="mb-6 flex w-full items-center justify-between"
                 >
                   <span className="flex items-center gap-3">
-                    <Button
-                      className="rounded-[14px] hover:bg-gray-800"
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => setIsCardActive((s) => !s)}
-                    >
-                      <ChevronLeft className="w-6 text-gray-500" />
-                    </Button>
+                    <motion.div whileTap={{ scale: 0.95 }}>
+                      <Button
+                        className="rounded-[14px] hover:bg-gray-800"
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setIsCardActive((s) => !s)}
+                      >
+                        <ChevronLeft className="w-6 text-gray-500" />
+                      </Button>
+                    </motion.div>
                     <div className="text-[20px] font-medium tracking-tight text-white">
                       Chase Debit
                     </div>

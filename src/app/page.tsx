@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 import Wallet from '@/components/sections/wallet'
 import DynamicDock from '@/components/sections/dynamic-dock'
+import SearchInput from '@/components/sections/search-input'
 
 export default function Home() {
   return (
@@ -44,6 +44,7 @@ export default function Home() {
         </div>
         <Wallet />
         <DynamicDock />
+        <SearchInput />
         <footer className="flex w-full items-center justify-between py-8">
           <div className="text-xs text-gray-500">Built with Next.js</div>
           <div className="text-xs text-gray-500">©George Kim, 2024</div>
