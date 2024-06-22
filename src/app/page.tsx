@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Wallet from '@/components/sections/wallet'
 import DynamicDock from '@/components/sections/dynamic-dock'
 import SearchInput from '@/components/sections/search-input'
+import Email from '@/components/sections/email'
 
 export default function Home() {
   return (
@@ -43,6 +44,7 @@ export default function Home() {
           </span>
         </div>
         <SearchInput />
+        <Email />
         <Wallet />
         <DynamicDock />
         <footer className="flex w-full items-center justify-between py-8">

@@ -93,9 +93,9 @@ export default function SearchInput() {
           <AnimatePresence>
             {isToggled ? (
               <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: 'auto' }}
-                exit={{ height: 0 }}
+                initial={{ height: 0, filter: 'blur(4px)' }}
+                animate={{ height: 'auto', filter: 'blur(0px)' }}
+                exit={{ height: 0, filter: 'blur(4px)' }}
                 transition={{
                   type: 'spring',
                   duration: 0.3,
@@ -111,9 +111,17 @@ export default function SearchInput() {
                       <motion.p className="bg-white px-3 pb-2 pt-5 text-xs text-gray-400 ">
                         Recent searches
                       </motion.p>
-                      {items.map((item) => (
+                      {items.map((item, i) => (
                         <motion.div
                           key={item.text}
+                          initial={{ opacity: 0 }}
+                          animate={{
+                            opacity: 1,
+                            transition: {
+                              delay: 0.05 * i,
+                              type: 'spring',
+                            },
+                          }}
                           className="group/item flex cursor-pointer items-center justify-between rounded-[14px] bg-white px-3 py-3 text-base font-normal text-gray-700 hover:bg-gray-50 hover:font-medium"
                         >
                           {item.text}
