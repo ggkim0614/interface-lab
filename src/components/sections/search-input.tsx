@@ -1,11 +1,8 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import { Search } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { ArrowRight } from 'lucide-react'
 import Section from './section'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { AnimatePresence, motion } from 'framer-motion'
 
 export default function SearchInput() {
@@ -57,7 +54,7 @@ export default function SearchInput() {
               transition={{
                 type: 'spring',
                 duration: 0.4,
-                // bounce: 0.25,
+                // bounce: 0.1,
               }}
               onFocus={() => setIsToggled(!isToggled)}
               onBlur={() => setIsToggled(!isToggled)}
@@ -111,20 +108,26 @@ export default function SearchInput() {
                 >
                   <motion.div className="pt-1">
                     <motion.div>
-                      <motion.p className="bg-white px-2 pb-2 pt-5 text-xs text-gray-400 ">
+                      <motion.p className="bg-white px-3 pb-2 pt-5 text-xs text-gray-400 ">
                         Recent searches
                       </motion.p>
-                      <motion.div className="cursor-pointer rounded-[14px] bg-white px-2 py-3 text-base text-gray-700 hover:bg-gray-50">
-                        Recent search item 1
-                      </motion.div>
-                      <hr className="mx-3" />
-                      <motion.div className="cursor-pointer rounded-[14px] bg-white px-2 py-3 text-base text-gray-700 hover:bg-gray-50">
-                        Recent search item 1
-                      </motion.div>
-                      <hr className="mx-3" />
-                      <motion.div className="cursor-pointer rounded-[14px] bg-white px-2 py-3 text-base text-gray-700 hover:bg-gray-50">
-                        Recent search item 1
-                      </motion.div>
+                      {items.map((item) => (
+                        <motion.div
+                          key={item.text}
+                          className="group/item flex cursor-pointer items-center justify-between rounded-[14px] bg-white px-3 py-3 text-base font-normal text-gray-700 hover:bg-gray-50 hover:font-medium"
+                        >
+                          {item.text}
+                          <a
+                            className="invisible flex items-center rounded-[8px] bg-gray-100 px-2 py-1 transition hover:bg-gray-200 group-hover/item:visible"
+                            href="/"
+                          >
+                            <span className="group-hover/text-gray-100 pr-[4px] text-sm opacity-75">
+                              Go
+                            </span>
+                            <ArrowRight className="group-hover/text-gray-100 w-[14px] opacity-40" />
+                          </a>
+                        </motion.div>
+                      ))}
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -136,3 +139,9 @@ export default function SearchInput() {
     </>
   )
 }
+
+const items = [
+  { text: 'Search Item 1' },
+  { text: 'Search Item 2' },
+  { text: 'Search Item 3' },
+]
