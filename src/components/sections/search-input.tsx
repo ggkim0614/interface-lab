@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 export default function SearchInput() {
   const [isToggled, setIsToggled] = useState(false)
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -25,11 +25,11 @@ export default function SearchInput() {
   }, [])
 
   const focusInput = () => {
-    inputRef.current.focus()
+    inputRef.current?.focus()
   }
 
   const blurInput = () => {
-    inputRef.current.blur()
+    inputRef.current?.blur()
   }
 
   return (
