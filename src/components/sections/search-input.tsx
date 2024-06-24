@@ -114,11 +114,12 @@ export default function SearchInput() {
                       {items.map((item, i) => (
                         <motion.div
                           key={item.text}
-                          initial={{ opacity: 0 }}
+                          initial={{ opacity: 0, y: -20 * i }}
                           animate={{
                             opacity: 1,
+                            y: 0,
                             transition: {
-                              delay: 0.05 * i,
+                              delay: 0.075 * i,
                               type: 'spring',
                             },
                           }}
