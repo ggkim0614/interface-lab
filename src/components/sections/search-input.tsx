@@ -46,7 +46,7 @@ export default function SearchInput() {
               layout
               ref={inputRef}
               type="text"
-              className="animated-background h-10 w-[200px] rounded-[14px] border-[1px] border-gray-200 bg-gray-100 px-3 text-sm font-medium text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-[2px] focus:ring-gray-700 focus:ring-offset-2 focus:placeholder:opacity-50"
+              className="animated-background z-10 h-10 w-[200px] rounded-[14px] border-[1px] border-gray-200 bg-gray-100 px-3 text-sm font-medium text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-[2px] focus:ring-gray-700 focus:ring-offset-2 focus:placeholder:opacity-50"
               placeholder="Search item..."
               whileFocus={{
                 width: 400,
@@ -100,6 +100,7 @@ export default function SearchInput() {
                   type: 'spring',
                   duration: 0.3,
                 }}
+                className="absolute z-10 w-[400px]"
               >
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -119,7 +120,7 @@ export default function SearchInput() {
                             opacity: 1,
                             y: 0,
                             transition: {
-                              delay: 0.075 * i,
+                              delay: 0.075 * i + 0.1,
                               type: 'spring',
                             },
                           }}
