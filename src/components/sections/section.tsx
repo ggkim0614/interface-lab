@@ -18,6 +18,7 @@ export default function Section({
 }: SectionProps) {
   const heightVariant = {
     400: `h-[400px]`,
+    500: `h-[500px]`,
     1000: `h-[1000px]`,
   } as any
   return (

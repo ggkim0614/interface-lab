@@ -54,7 +54,6 @@ export default function SearchInput() {
               transition={{
                 type: 'spring',
                 duration: 0.4,
-                // bounce: 0.1,
               }}
               onFocus={() => setIsToggled(!isToggled)}
               onBlur={() => setIsToggled(!isToggled)}

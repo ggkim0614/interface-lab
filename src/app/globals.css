@@ -75,3 +75,12 @@
   }
 }
 
+@layer components {
+  .email-section-shadow {
+    box-shadow: inset 0px 20px 30px -10px rgba(0, 0, 0, 0.05);
+  }
+  .email-section-shadow-2 {
+    box-shadow: inset 0px 40px 60px -40px rgba(0, 0, 0, 0.05);
+  }
+}
+
