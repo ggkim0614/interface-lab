@@ -43,8 +43,8 @@ export default function Home() {
             </p>
           </span>
         </div>
-        <SearchInput />
         <Email />
+        <SearchInput />
         <Wallet />
         <DynamicDock />
         <footer className="flex w-full items-center justify-between py-8">

@@ -93,19 +93,22 @@ export default function SearchInput() {
           <AnimatePresence>
             {isToggled ? (
               <motion.div
-                initial={{ height: 0, filter: 'blur(4px)' }}
-                animate={{ height: 'auto', filter: 'blur(0px)' }}
-                exit={{ height: 0, filter: 'blur(4px)' }}
+                initial={{ height: 0, width: 200, filter: 'blur(4px)' }}
+                animate={{ height: 'auto', width: 400, filter: 'blur(0px)' }}
+                exit={{ height: 0, width: 200, filter: 'blur(4px)' }}
                 transition={{
                   type: 'spring',
-                  duration: 0.3,
+                  duration: 0.4,
                 }}
-                className="absolute z-10 w-[400px]"
+                className="absolute z-0 w-[400px]"
               >
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  exit={{ opacity: 0, transition: { duration: 0.1 } }}
+                  exit={{
+                    opacity: 0,
+                    transition: { duration: 0.1 },
+                  }}
                 >
                   <motion.div className="pt-1">
                     <motion.div>
