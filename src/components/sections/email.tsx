@@ -10,7 +10,15 @@ import {
   type MotionStyle,
 } from 'framer-motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { ArrowDown, ArrowUp } from 'lucide-react'
+
+import {
+  ArrowDown,
+  ArrowUp,
+  Bookmark,
+  ChevronDown,
+  Reply,
+  Trash,
+} from 'lucide-react'
 import Section from './section'
 
 const variants = {
@@ -86,15 +94,13 @@ export default function Email() {
     }
   })
 
-  console.log(isBeingDragged)
-
   return (
     <>
       <Section
         title="Folded Email"
-        description="temp description for email"
+        description="Drag down to open, drag up to close."
         labels={['React', 'Framer Motion', 'TailwindCSS', 'Shadcn']}
-        frameHeight={500}
+        frameHeight={600}
       >
         <div>
           <motion.div
@@ -148,13 +154,6 @@ export default function Email() {
                     <p className="text-sm font-light text-gray-500">
                       Sent from
                     </p>
-                    <Avatar className="h-[16px] w-[16px]">
-                      <AvatarImage
-                        src="https://i0.wp.com/www.christineswilliams.com/wp-content/uploads/2016/08/The-Little-Prince-and-Fox.png"
-                        alt="@fox"
-                      />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
                     <p className="text-sm font-medium text-gray-600">Fox</p>
                   </span>
                   <p className="overflow-hidden overflow-ellipsis whitespace-nowrap text-base font-medium text-gray-900">
@@ -171,16 +170,31 @@ export default function Email() {
                     skewX: 1,
                   } as MotionStyle
                 }
-                className="email-section-shadow origin-top-left border-b-gray-200 border-t-white bg-gray-100 px-4 py-3 brightness-[--brightness]"
+                className="email-section-shadow flex origin-top-left flex-col justify-between border-b-gray-200 border-t-white bg-gray-100 px-4 py-2 brightness-[--brightness]"
               >
-                <p className="text-[12px] leading-5">
+                <p
+                  className="line-clamp-3 overflow-hidden overflow-ellipsis text-[12px] leading-[18px]"
+                  style={{
+                    maskImage:
+                      'linear-gradient(to bottom,black 1%,transparent 99%)',
+                  }}
+                >
                   “…if you come at four in the afternoon, I’ll begin to be happy
                   by three. The closer it gets to four, the happier I’ll feel.
                   By four I’ll be all excited and worried; I’ll discover what it
                   costs to be happy! But if you come at any old time, I’ll never
                   know when to prepare my heart . . .”
                 </p>
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  className="flex h-[22px] w-full items-center justify-center gap-[2px] rounded-[6px]
+                   bg-gray-200 text-[11px] tracking-tight text-gray-700 hover:bg-gray-400"
+                >
+                  Click to read more&nbsp;
+                  <ChevronDown className="w-[10px] opacity-60" />
+                </motion.button>
               </motion.div>
+
               <motion.div
                 style={
                   {
@@ -190,9 +204,69 @@ export default function Email() {
                     skew: -1,
                   } as MotionStyle
                 }
-                className="email-section-shadow-2 origin-bottom-right bg-gray-100 px-4 pb-4 text-base brightness-[--brightness]"
+                className="email-section-shadow-2 origin-bottom-right justify-between  bg-gray-100 text-base brightness-[--brightness]"
               >
-                <p className="text-sm">What should go here? controls?</p>
+                <div className="mb-[16px] h-full overflow-visible bg-gray-100 px-4 py-2">
+                  <div className="text-[12px] text-gray-500">Sender</div>
+                  <span className="flex items-center gap-1">
+                    <Avatar className="h-[20px] w-[20px]">
+                      <AvatarImage
+                        src="https://i0.wp.com/www.christineswilliams.com/wp-content/uploads/2016/08/The-Little-Prince-and-Fox.png"
+                        alt="@fox"
+                      />
+                      <AvatarFallback>Fox</AvatarFallback>
+                    </Avatar>
+                    <div className="text-[16px] font-medium text-gray-700">
+                      Fox
+                    </div>
+                  </span>
+                  <div className="text-[12px] text-gray-700">
+                    @Shade under the first baobab tree, Planet Earth
+                  </div>
+                </div>
+                <AnimatePresence>
+                  {isCollapsed ? null : (
+                    <motion.div
+                      initial={{ scale: 0.5, opacity: 0, filter: 'blur(4px)' }}
+                      animate={{
+                        scale: 1,
+                        opacity: 1,
+                        filter: 'blur(0px)',
+                        transition: {
+                          delay: 0.2,
+                        },
+                      }}
+                      exit={{
+                        scale: 0.5,
+                        opacity: 0,
+                        filter: 'blur(4px)',
+                        transition: {
+                          duration: 0.1,
+                        },
+                      }}
+                      className="grid grid-cols-3 gap-[10px] rounded-[36px]  p-2"
+                    >
+                      <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-gray-700 text-[14px] font-medium text-gray-100 transition hover:bg-gray-600  hover:text-white">
+                        <Bookmark
+                          className="h-[14px] w-[14px] opacity-50"
+                          strokeWidth={2.5}
+                        />
+                        Bookmark
+                      </button>
+                      <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] border border-red-100 bg-red-50 text-[14px] font-medium text-red-500 transition hover:bg-red-100">
+                        <Trash className="strokeWidth={2.5} h-[14px] w-[14px]" />
+                        Delete
+                      </button>
+                      <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-blue-500 text-[14px] font-medium  text-white transition hover:bg-blue-600">
+                        <Reply
+                          className="h-[14px] w-[14px] opacity-50"
+                          strokeWidth={2.5}
+                        />
+                        Reply
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             </motion.div>
             <motion.div
