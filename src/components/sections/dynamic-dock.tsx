@@ -58,12 +58,12 @@ export default function DynamicDock() {
             <AnimatePresence>
               {isToggled ? (
                 <motion.div
-                  initial={{ opacity: 1 }}
+                  initial={{ opacity: 1, filter: 'blur(4px)' }}
                   animate={{
                     opacity: 0,
-                    transition: { duration: 0.05 },
+                    transition: { duration: 0.001, filter: 'blur(4px)' },
                   }}
-                  exit={{ opacity: 1 }}
+                  exit={{ opacity: 0, filter: 'blur(4px)' }}
                   layoutId="write-text"
                   className="ml-0 w-0 opacity-0"
                 >
