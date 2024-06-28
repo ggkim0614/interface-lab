@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { cn } from '@/lib/utils'
 import Section from './section'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -36,9 +37,9 @@ export default function SearchInput() {
     <>
       <Section
         title="Search Input"
-        description="temp description for search input"
+        description="Cmd + K or click input to open, ESC or click to close"
         labels={['React', 'Framer Motion', 'TailwindCSS']}
-        frameHeight={400}
+        frameHeight={500}
       >
         <motion.div layout className="rounded-[16px] shadow-none">
           <div className="relative flex">
@@ -46,7 +47,10 @@ export default function SearchInput() {
               layout
               ref={inputRef}
               type="text"
-              className="animated-background z-10 h-10 w-[200px] rounded-[14px] border-[1px] border-gray-200 bg-gray-100 px-3 text-sm font-medium text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-[2px] focus:ring-gray-700 focus:ring-offset-2 focus:placeholder:opacity-50"
+              className={cn(
+                'animated-background z-10 h-10 w-[200px] rounded-[14px] border-[1px] border-gray-200 bg-gray-100 px-3 text-sm font-medium text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-[3px] focus:ring-blue-500 focus:ring-offset-[4px] focus:placeholder:opacity-50',
+                isToggled && 'bg-blue-50'
+              )}
               placeholder="Search item..."
               whileFocus={{
                 width: 400,
@@ -54,6 +58,7 @@ export default function SearchInput() {
               transition={{
                 type: 'spring',
                 duration: 0.4,
+                bounce: 0.3,
               }}
               onFocus={() => setIsToggled(!isToggled)}
               onBlur={() => setIsToggled(!isToggled)}
@@ -126,17 +131,17 @@ export default function SearchInput() {
                               type: 'spring',
                             },
                           }}
-                          className="group/item flex cursor-pointer items-center justify-between rounded-[14px] bg-white px-3 py-3 text-base font-normal text-gray-700 hover:bg-gray-50 hover:font-medium"
+                          className="group/item flex cursor-pointer items-center justify-between rounded-[14px] bg-white px-3 py-3 text-base font-normal text-gray-700 hover:bg-blue-50 hover:font-medium"
                         >
                           {item.text}
                           <a
-                            className="invisible flex items-center rounded-[8px] bg-gray-100 px-2 py-1 transition hover:bg-gray-200 group-hover/item:visible"
+                            className="invisible flex items-center rounded-[8px] bg-blue-100 px-2 py-1 transition hover:bg-blue-200 group-hover/item:visible"
                             href="/"
                           >
-                            <span className="group-hover/text-gray-100 pr-[4px] text-sm opacity-75">
+                            <span className="group-hover/text-blue-800 pr-[4px] text-sm text-blue-500">
                               Go
                             </span>
-                            <ArrowRight className="group-hover/text-gray-100 w-[14px] opacity-40" />
+                            <ArrowRight className="group-hover/text-blue-800 w-[14px] text-blue-600 opacity-40" />
                           </a>
                         </motion.div>
                       ))}

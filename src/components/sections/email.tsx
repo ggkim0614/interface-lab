@@ -10,7 +10,7 @@ import {
   type MotionStyle,
 } from 'framer-motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-
+import { cn } from '@/lib/utils'
 import {
   ArrowDown,
   ArrowUp,
@@ -111,15 +111,19 @@ export default function Email() {
             className="align-center flex w-full justify-center font-mono text-base text-gray-400"
           >
             Drag&nbsp;
-            {isCollapsed ? (
-              <span className="align-center flex gap-[4px]">
-                down <ArrowDown className="w-4" />
-              </span>
-            ) : (
-              <span className="align-center flex gap-[4px]">
-                up <ArrowUp className="w-4" />
-              </span>
-            )}
+            {isCollapsed ? 'down' : 'up'}
+            <motion.div
+              initial={{ rotate: 0 }}
+              animate={{
+                rotate: isCollapsed ? 0 : 180,
+                transition: {
+                  type: 'easeOut',
+                },
+              }}
+              className=""
+            >
+              <ArrowDown className="w-4" />
+            </motion.div>
             &nbsp;to {isCollapsed ? 'open' : 'close'}
           </motion.div>
 
@@ -142,7 +146,9 @@ export default function Email() {
                   y: yTopSection,
                   skewX: -1,
                 }}
-                className="z-10 flex origin-bottom-left flex-col justify-between overflow-hidden bg-gray-50 px-4 py-[12px]"
+                className={cn(
+                  'z-10 flex origin-bottom-left flex-col justify-between overflow-hidden bg-gray-50 px-4 py-[12px]'
+                )}
               >
                 <div>
                   <p className="text-xs text-gray-500">
@@ -170,13 +176,16 @@ export default function Email() {
                     skewX: 1,
                   } as MotionStyle
                 }
-                className="email-section-shadow flex origin-top-left flex-col justify-between border-b-gray-200 border-t-white bg-gray-100 px-4 py-2 brightness-[--brightness]"
+                className={cn(
+                  'email-section-shadow flex origin-top-left flex-col justify-between border-t-white bg-gray-100 px-4 py-2 brightness-[--brightness]',
+                  isBeingDragged ? 'shadow-2xl' : 'shadow-md'
+                )}
               >
                 <p
                   className="line-clamp-3 overflow-hidden overflow-ellipsis text-[12px] leading-[18px]"
                   style={{
                     maskImage:
-                      'linear-gradient(to bottom,black 1%,transparent 99%)',
+                      'linear-gradient(to bottom, black 50%,transparent 99%)',
                   }}
                 >
                   “…if you come at four in the afternoon, I’ll begin to be happy
@@ -188,7 +197,7 @@ export default function Email() {
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   className="flex h-[22px] w-full items-center justify-center gap-[2px] rounded-[6px]
-                   bg-gray-200 text-[11px] tracking-tight text-gray-700 hover:bg-gray-400"
+                   bg-gray-200 text-[11px] tracking-tight text-gray-500 hover:bg-gray-400"
                 >
                   Click to read more&nbsp;
                   <ChevronDown className="w-[10px] opacity-60" />
@@ -204,12 +213,15 @@ export default function Email() {
                     skew: -1,
                   } as MotionStyle
                 }
-                className="email-section-shadow-2 origin-bottom-right justify-between  bg-gray-100 text-base brightness-[--brightness]"
+                className={cn(
+                  'email-section-shadow origin-bottom-right justify-between  bg-gray-50 text-base brightness-[--brightness]',
+                  isBeingDragged ? 'shadow-2xl' : 'shadow-md'
+                )}
               >
-                <div className="mb-[16px] h-full overflow-visible bg-gray-100 px-4 py-2">
+                <div className="mb-[16px] flex h-full flex-col items-center overflow-visible border-t-gray-500 bg-gray-50 px-4 pb-2">
                   <div className="text-[12px] text-gray-500">Sender</div>
-                  <span className="flex items-center gap-1">
-                    <Avatar className="h-[20px] w-[20px]">
+                  <span className="flex items-center gap-[4px]">
+                    <Avatar className="h-[18px] w-[18px]">
                       <AvatarImage
                         src="https://i0.wp.com/www.christineswilliams.com/wp-content/uploads/2016/08/The-Little-Prince-and-Fox.png"
                         alt="@fox"
@@ -222,6 +234,9 @@ export default function Email() {
                   </span>
                   <div className="text-[12px] text-gray-700">
                     @Shade under the first baobab tree, Planet Earth
+                  </div>
+                  <div className="text-[10px] text-gray-500 underline underline-offset-1">
+                    Unsubscribe
                   </div>
                 </div>
                 <AnimatePresence>
@@ -244,7 +259,7 @@ export default function Email() {
                           duration: 0.1,
                         },
                       }}
-                      className="grid grid-cols-3 gap-[10px] rounded-[36px]  p-2"
+                      className="grid grid-cols-3 gap-[10px] rounded-[36px]"
                     >
                       <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-gray-700 text-[14px] font-medium text-gray-100 transition hover:bg-gray-600  hover:text-white">
                         <Bookmark
