@@ -79,8 +79,25 @@
   .email-section-shadow {
     box-shadow: inset 0px 20px 30px -10px rgba(0, 0, 0, 0.05);
   }
-  .email-section-shadow-2 {
-    box-shadow: inset 0px 40px 60px -40px rgba(0, 0, 0, 0.5);
+  .animated-background {
+    background-size: 200%;
+    -webkit-animation: animation 1.5s ease infinite;
+    -moz-animation: animation 1.5s ease infinite;
+    animation: animation 1.5s ease infinite;
+  }
+  .large-text {
+    font-size: 40px;
+  }
+}
+
+@keyframes animation {
+  0%,
+  100% {
+      background-position: 0% 50%;
+  }
+  
+  50% {
+      background-position: 100% 50%;
   }
 }
 

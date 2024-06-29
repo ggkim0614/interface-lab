@@ -17,7 +17,6 @@ export default function SearchInput() {
         focusInput()
       } else if (e.key === 'Escape') {
         e.preventDefault()
-        console.log('escape')
         blurInput()
       }
     }
@@ -46,10 +45,12 @@ export default function SearchInput() {
             <motion.input
               layout
               ref={inputRef}
+              onChange={() => console.log('change happening')}
               type="text"
               className={cn(
                 'animated-background z-10 h-10 w-[200px] rounded-[14px] border-[1px] border-gray-200 bg-gray-100 px-3 text-sm font-medium text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-[3px] focus:ring-blue-500 focus:ring-offset-[4px] focus:placeholder:opacity-50',
-                isToggled && 'bg-blue-50'
+                isToggled &&
+                  'animated-background large-text border-0 bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-300 placeholder:text-gray-700'
               )}
               placeholder="Search item..."
               whileFocus={{
@@ -64,10 +65,15 @@ export default function SearchInput() {
               onBlur={() => setIsToggled(!isToggled)}
             ></motion.input>
 
-            <span className="absolute inset-y-0 right-0 top-0 z-10 flex items-center justify-center gap-1 pr-3">
+            <span
+              className={cn(
+                'absolute inset-y-0 right-0 top-0 z-10 mr-3 inline-flex items-center justify-center gap-1',
+                isToggled && 'rounded-[6px] px-[6px] '
+              )}
+            >
               <AnimatePresence>
                 {isToggled ? (
-                  <motion.span layout className="text-[13px] text-gray-400">
+                  <motion.span layout className="text-[13px] text-gray-500">
                     Press
                   </motion.span>
                 ) : null}
@@ -87,7 +93,7 @@ export default function SearchInput() {
               </motion.kbd>
               <AnimatePresence>
                 {isToggled ? (
-                  <motion.span layout className="text-[13px] text-gray-400">
+                  <motion.span layout className="text-[13px] text-gray-500">
                     to exit
                   </motion.span>
                 ) : null}
@@ -97,9 +103,9 @@ export default function SearchInput() {
           <AnimatePresence>
             {isToggled ? (
               <motion.div
-                initial={{ height: 0, width: 200, filter: 'blur(4px)' }}
-                animate={{ height: 'auto', width: 400, filter: 'blur(0px)' }}
-                exit={{ height: 0, width: 200, filter: 'blur(4px)' }}
+                initial={{ height: 0, width: 200 }}
+                animate={{ height: 'auto', width: 400 }}
+                exit={{ height: 0, width: 200 }}
                 transition={{
                   type: 'spring',
                   duration: 0.4,
@@ -116,9 +122,12 @@ export default function SearchInput() {
                 >
                   <motion.div className="pt-1">
                     <motion.div>
-                      <motion.p className="bg-white px-3 pb-2 pt-5 text-xs text-gray-400 ">
-                        Recent searches
-                      </motion.p>
+                      <p className="flex items-center justify-between bg-white px-3 pb-2 pt-5 text-xs text-gray-400 ">
+                        <div>Recent searches</div>
+                        <div className="cursor-pointer hover:text-red-500">
+                          Clear
+                        </div>
+                      </p>
                       {items.map((item, i) => (
                         <motion.div
                           key={item.text}
@@ -127,11 +136,18 @@ export default function SearchInput() {
                             opacity: 1,
                             y: 0,
                             transition: {
-                              delay: 0.075 * i + 0.1,
-                              type: 'spring',
+                              delay: 0.015 * i + 0.025,
+                              type: 'easeOut',
                             },
                           }}
-                          className="group/item flex cursor-pointer items-center justify-between rounded-[14px] bg-white px-3 py-3 text-base font-normal text-gray-700 hover:bg-blue-50 hover:font-medium"
+                          exit={{
+                            opacity: 0,
+                            y: -40 * i,
+                            transition: {
+                              duration: 0.1,
+                            },
+                          }}
+                          className="group/item flex cursor-pointer items-center justify-between rounded-[14px] bg-white px-2 py-2 text-base font-normal text-gray-700 hover:bg-blue-50 hover:font-medium"
                         >
                           {item.text}
                           <a
