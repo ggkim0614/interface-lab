@@ -136,7 +136,7 @@ export default function SearchInput() {
                             opacity: 1,
                             y: 0,
                             transition: {
-                              delay: 0.015 * i + 0.025,
+                              delay: 0.01 * i + 0.025,
                               type: 'easeOut',
                             },
                           }}
