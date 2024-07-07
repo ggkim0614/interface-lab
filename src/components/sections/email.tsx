@@ -294,7 +294,7 @@ export default function Email() {
                 },
                 timeConstant: 105,
               }}
-              className="z-20 cursor-pointer bg-pink-500 opacity-0 [grid-area:1/1]"
+              className="z-20 cursor-pointer [grid-area:1/1]"
             />
           </motion.div>
         </div>
