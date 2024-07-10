@@ -152,7 +152,7 @@ export default function Email() {
               >
                 <div>
                   <p className="text-xs text-gray-500">
-                    June 27, 2024 at 06:14 PM
+                    June 14, 2024 at 06:14 PM
                   </p>
                 </div>
                 <div className="flex flex-col gap-1">
