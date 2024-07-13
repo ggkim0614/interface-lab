@@ -6,6 +6,7 @@ import Wallet from '@/components/sections/wallet'
 import DynamicDock from '@/components/sections/dynamic-dock'
 import SearchInput from '@/components/sections/search-input'
 import Email from '@/components/sections/email'
+import GlowingSwitch from '@/components/sections/switch'
 
 export default function Home() {
   return (
@@ -43,6 +44,7 @@ export default function Home() {
             </p>
           </span>
         </div>
+        <GlowingSwitch />
         <Email />
         <SearchInput />
         <Wallet />
