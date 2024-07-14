@@ -1,7 +1,6 @@
 'use client'
 
 import Section from './section'
-import { Switch } from '@/components/ui/switch'
 
 export default function GlowingSwitch() {
   return (
@@ -12,7 +11,14 @@ export default function GlowingSwitch() {
         labels={['React', 'Framer Motion', 'TailwindCSS', 'Shadcn']}
         frameHeight={500}
       >
-        <Switch />
+        <input
+          className="react-switch-checkbox"
+          id={`react-switch-new`}
+          type="checkbox"
+        />
+        <label className="react-switch-label" htmlFor={`react-switch-new`}>
+          <span className={`react-switch-button`} />
+        </label>
       </Section>
     </>
   )
