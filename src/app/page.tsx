@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Wallet from '@/components/sections/wallet'
 import DynamicDock from '@/components/sections/dynamic-dock'
 import SearchInput from '@/components/sections/search-input'
-import Email from '@/components/sections/email'
+import FoldedEmail from '@/components/sections/folded-email'
 import AnimatedSwitch from '@/components/sections/animated-switch'
 
 export default function Home() {
@@ -45,7 +45,7 @@ export default function Home() {
           </span>
         </div>
         <AnimatedSwitch />
-        <Email />
+        <FoldedEmail />
         <SearchInput />
         <Wallet />
         <DynamicDock />

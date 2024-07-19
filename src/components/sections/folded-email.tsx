@@ -57,7 +57,7 @@ const variants = {
   },
 }
 
-export default function Email() {
+export default function FoldedEmail() {
   const [isCollapsed, setIsCollapsed] = useState(true)
   const [isBeingDragged, setIsBeingDragged] = useState(false)
   const yDrag = useMotionValue(0)

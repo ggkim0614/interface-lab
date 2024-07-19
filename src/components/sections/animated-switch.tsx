@@ -7,35 +7,39 @@ import { cn } from '@/lib/utils'
 
 export default function AnimatedSwitch() {
   const [isOn, setIsOn] = useState(false)
-  console.log(isOn)
-
-  const spring = {
-    type: 'spring',
-    damping: 20,
-    duration: 0.2,
-  }
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <>
       <Section
-        title="Switch"
+        title="Animated Switch"
         description="temp text for switch component"
         labels={['React', 'Framer Motion', 'TailwindCSS', 'Shadcn']}
         frameHeight={500}
       >
-        <motion.input
-          transition={spring}
-          animate={{ scale: isOn ? 1.5 : 1 }}
+        <input
           className="hidden h-0 w-0"
           id={`react-switch-new`}
           type="checkbox"
           onClick={() => setIsOn(!isOn)}
         />
-        <label
+        <motion.label
+          whileTap={{ scale: 0.975 }}
+          onHoverStart={() => setIsHovered(true)}
+          onHoverEnd={() => setIsHovered(false)}
+          whileHover={{
+            rotate: isHovered && !isOn ? 5 : -5,
+          }}
+          transition={{
+            type: 'spring',
+            duration: 0.6,
+            bounce: 0.5,
+          }}
+          animate={{ scale: isOn ? 1.05 : 1 }}
           className={cn(
-            'relative flex h-[52px] w-[96px] cursor-pointer items-center justify-between rounded-[100px] bg-gray-300 transition-colors',
+            'relative flex h-[52px] w-[94px] cursor-pointer items-center justify-between rounded-[100px] bg-gray-300 transition-colors',
             isOn &&
-              'animated-background-fast bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-300'
+              'animated-background-fast bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'
           )}
           htmlFor={`react-switch-new`}
         >
@@ -48,9 +52,12 @@ export default function AnimatedSwitch() {
             animate={{
               translateX: isOn ? '100%' : 0,
             }}
-            className="absolute left-[4px] top-[4px] h-[44px] w-[44px] rounded-[44px] bg-white shadow-lg content-none"
+            className={cn(
+              'absolute left-[5px] top-[5px] h-[42px] w-[42px] rounded-[44px] bg-white content-none',
+              isOn && 'shadow-lg'
+            )}
           />
-        </label>
+        </motion.label>
       </Section>
     </>
   )
