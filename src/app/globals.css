@@ -85,6 +85,12 @@
     -moz-animation: animation 1.5s ease infinite;
     animation: animation 1.5s ease infinite;
   }
+  .animated-background-fast {
+    background-size: 200%;
+    -webkit-animation: animation .75s ease-in-out infinite;
+    -moz-animation: animation .75s ease-in-out infinite;
+    animation: animation .75s ease-in-out infinite;
+  }
   .large-text {
     font-size: 40px;
   }
