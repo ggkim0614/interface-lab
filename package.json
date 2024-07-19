@@ -30,18 +30,18 @@
     "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "eslint": "8.57.0",
+    "eslint": "9.7.0",
     "eslint-config-next": "^14.2.5",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.5.14",
+    "prettier-plugin-tailwindcss": "^0.6.5",
     "tailwindcss": "^3.4.6",
-    "turbo": "^1.13.4",
+    "turbo": "^2.0.8",
     "typescript": "^5.5.3",
-    "vercel": "^34.4.0"
+    "vercel": "^35.1.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mdx}": [
