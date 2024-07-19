@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { Textarea } from '@/components/ui/textarea'
 import { X, CircleHelp } from 'lucide-react'
 import useMeasure from 'react-use-measure'
+import { Input } from '@/components/ui/input'
 
 interface Props {
   onCloseHandler: () => void
@@ -28,9 +30,9 @@ export default function Items({ onCloseHandler, isOpen }: Props) {
       </motion.span>
       <header className="flex items-center justify-between">
         <motion.div
-          initial={{ filter: 'blur(4px)', opacity: 0 }}
+          initial={{ filter: 'blur(6px)', opacity: 0 }}
           animate={{ filter: 'blur(0px)', opacity: 1 }}
-          exit={{ filter: 'blur(4px)', opacity: 0 }}
+          exit={{ filter: 'blur(6px)', opacity: 0 }}
         >
           {buttons.map((button) => (
             <button
@@ -79,11 +81,12 @@ export default function Items({ onCloseHandler, isOpen }: Props) {
           {active === 'ChatGPT' ? (
             <motion.div
               key={'ChatGPT'}
-              initial={{ opacity: 0, filter: 'blur(4px)' }}
+              initial={{ opacity: 0, filter: 'blur(6px)' }}
               animate={{ opacity: 1, filter: 'blur(0px)' }}
             >
-              <div className="flex h-24 items-center justify-center">
-                ChatGPT
+              <div className="flex h-24 flex-col items-start justify-center">
+                <div className="pl-1 text-[12px] text-gray-500">GPT-4o</div>
+                <Input type="text" placeholder="Type your message here." />
               </div>
               <div className="flex justify-between pl-2">
                 <small className="flex items-center gap-1 text-[12px] text-[#929292]">
@@ -94,46 +97,38 @@ export default function Items({ onCloseHandler, isOpen }: Props) {
                     strokeWidth={2}
                   />
                 </small>
-                <button className="rounded-md bg-gray-900 px-3 text-[14px] font-medium text-white">
+                <button className="rounded-md bg-gray-900 px-3 text-[14px] font-medium text-white hover:bg-gray-700">
                   Message ChatGPT
                 </button>
               </div>
             </motion.div>
           ) : active === 'Claude' ? (
             <motion.div
-              initial={{ opacity: 0, filter: 'blur(4px)' }}
+              initial={{ opacity: 0, filter: 'blur(6px)' }}
               animate={{ opacity: 1, filter: 'blur(0px)' }}
             >
-              <div className="flex h-20 items-center justify-center">
-                Claude
+              <div className="flex h-32 flex-col items-start justify-center">
+                <div className="pl-1 text-[12px] text-gray-500">3.5 Sonnet</div>
+                <Textarea placeholder="Type your message here." />
               </div>
               <div className="flex justify-between pl-2">
                 <small className="flex items-center gap-1 text-[12px] text-[#929292]">
                   <div className="h-1 w-1 rounded-full bg-green-500"></div>
                   Operational
                 </small>
-                <button className="rounded-md bg-gray-900 px-3 text-[14px] font-medium text-white">
+                <button className="rounded-md bg-gray-900 px-3 text-[14px] font-medium text-white hover:bg-gray-700">
                   Message Claude
                 </button>
               </div>
             </motion.div>
           ) : active === 'Gemini' ? (
             <motion.div
-              key={'prompt'}
-              initial={{ opacity: 0, filter: 'blur(4px)' }}
+              key={'Gemini'}
+              initial={{ opacity: 0, filter: 'blur(6px)' }}
               animate={{ opacity: 1, filter: 'blur(0px)' }}
             >
-              <div className="flex h-32 items-center justify-center">
-                Gemini
-              </div>
-              <div className="flex justify-between pl-2">
-                <small className="flex items-center gap-1 text-[12px] text-[#929292]">
-                  <div className="h-1 w-1 rounded-full bg-green-500"></div>
-                  Operational
-                </small>
-                <button className="rounded-md bg-gray-900 px-3 text-[14px] font-medium text-white">
-                  Message Gemini
-                </button>
+              <div className="flex h-16 items-center justify-center">
+                <code className="text-[14px] text-gray-400">wip</code>
               </div>
             </motion.div>
           ) : null}

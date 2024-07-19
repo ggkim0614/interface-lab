@@ -24,6 +24,9 @@ export default function DynamicAIWidget() {
           <AnimatePresence>
             {!isOpen && (
               <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 0.05 } }}
+                exit={{ opacity: 0, transition: { duration: 0.05 } }}
                 layoutId="wrapper"
                 className="group flex items-center justify-center gap-1 border border-border bg-gray-50 px-4 py-1 active:bg-gray-100"
                 onClick={onIconClickHandler}
