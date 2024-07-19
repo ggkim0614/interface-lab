@@ -87,9 +87,9 @@
   }
   .animated-background-fast {
     background-size: 200%;
-    -webkit-animation: animation 1s ease-in-out infinite;
-    -moz-animation: animation 1s ease-in-out infinite;
-    animation: animation 1s ease-in-out infinite;
+    -webkit-animation: animation .75s ease-in-out infinite;
+    -moz-animation: animation .75s ease-in-out infinite;
+    animation: animation .75s ease-in-out infinite;
   }
   .large-text {
     font-size: 40px;

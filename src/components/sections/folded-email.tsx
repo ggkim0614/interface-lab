@@ -11,14 +11,7 @@ import {
 } from 'framer-motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { cn } from '@/lib/utils'
-import {
-  ArrowDown,
-  ArrowUp,
-  Bookmark,
-  ChevronDown,
-  Reply,
-  Trash,
-} from 'lucide-react'
+import { ArrowDown, Bookmark, ChevronDown, Reply, Trash } from 'lucide-react'
 import Section from './section'
 
 const variants = {

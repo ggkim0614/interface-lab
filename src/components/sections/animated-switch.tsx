@@ -14,7 +14,7 @@ export default function AnimatedSwitch() {
       <Section
         title="Animated Switch"
         description="temp text for switch component"
-        labels={['React', 'Framer Motion', 'TailwindCSS', 'Shadcn']}
+        labels={['React', 'Framer Motion', 'TailwindCSS']}
         frameHeight={500}
       >
         <input
@@ -28,18 +28,22 @@ export default function AnimatedSwitch() {
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
           whileHover={{
-            rotate: isHovered && !isOn ? 5 : -5,
+            rotate: isHovered && !isOn ? 7 : -7,
           }}
           transition={{
             type: 'spring',
             duration: 0.6,
             bounce: 0.5,
           }}
-          animate={{ scale: isOn ? 1.05 : 1 }}
+          animate={{
+            scale: isOn ? 1.25 : 1,
+            rotate: 0,
+          }}
           className={cn(
             'relative flex h-[52px] w-[94px] cursor-pointer items-center justify-between rounded-[100px] bg-gray-300 transition-colors',
+            isHovered && 'bg-gray-400',
             isOn &&
-              'animated-background-fast bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'
+              'shadow-effect animated-background-fast bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'
           )}
           htmlFor={`react-switch-new`}
         >
