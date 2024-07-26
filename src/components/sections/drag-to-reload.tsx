@@ -1,11 +1,30 @@
 'use client'
 
-import Section from './section'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Section from './section'
 
-const transition = { duration: 4, yoyo: Infinity, ease: 'easeInOut' }
+const transition = { duration: 2, ease: 'easeInOut' }
 
 export default function DragToReload() {
+  const [animationRan, setAnimationRan] = useState(false)
+  const [segmentLength, setSegmentLength] = useState(20)
+
+  const handleAnimationComplete = () => {
+    setAnimationRan(!animationRan)
+  }
+
+  const pathVariants = {
+    normal: {
+      strokeDashoffset: -230,
+    },
+    backward: {
+      strokeDashoffset: 0,
+    },
+  }
+
+  console.log(animationRan)
+
   return (
     <Section
       title="DragToReload"
@@ -13,41 +32,37 @@ export default function DragToReload() {
       labels={['React', 'Framer Motion', 'TailwindCSS', 'Shadcn']}
       frameHeight={500}
     >
-      <svg
-        width="34"
-        height="40"
-        viewBox="0 0 34 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          d="M26.4569 18.5392C26.2867 18.4566 26.1138 18.3772 25.9386 18.3011C25.6336 12.6121 22.5624 9.35521 17.4055 9.32187C17.3821 9.32173 17.3589 9.32173 17.3355 9.32173C14.251 9.32173 11.6857 10.6544 10.1067 13.0793L12.9429 15.0485C14.1224 13.2371 15.9736 12.851 17.3369 12.851C17.3526 12.851 17.3684 12.851 17.384 12.8511C19.082 12.8621 20.3633 13.3618 21.1926 14.3363C21.7961 15.0457 22.1997 16.026 22.3996 17.2633C20.8941 17.0043 19.266 16.9247 17.5255 17.0257C12.6225 17.3115 9.47051 20.2058 9.68221 24.2275C9.78963 26.2675 10.7937 28.0225 12.5094 29.169C13.96 30.1381 15.8282 30.6121 17.7699 30.5048C20.3341 30.3625 22.3456 29.3723 23.749 27.5617C24.8148 26.1867 25.4889 24.4048 25.7865 22.1596C27.0085 22.906 27.9142 23.8883 28.4144 25.0692C29.2649 27.0765 29.3145 30.375 26.6553 33.0642C24.3255 35.42 21.525 36.4392 17.2926 36.4706C12.5977 36.4354 9.04706 34.9115 6.73852 31.941C4.57676 29.1596 3.45955 25.1421 3.41787 20C3.45955 14.8579 4.57676 10.8403 6.73852 8.0589C9.04706 5.08852 12.5977 3.56458 17.2925 3.52927C22.0215 3.56485 25.634 5.09612 28.0309 8.08083C29.2062 9.5445 30.0923 11.3852 30.6764 13.5313L34 12.6338C33.2919 9.99212 32.1778 7.71577 30.6616 5.82792C27.5888 2.00139 23.0947 0.0406558 17.3041 0H17.2809C11.5022 0.0405146 7.05838 2.00871 4.07305 5.84985C1.41651 9.268 0.0461885 14.0241 0.000144081 19.9859L0 20L0.000144081 20.0141C0.0461885 25.9758 1.41651 30.7321 4.07305 34.1502C7.05838 37.9913 11.5022 39.9596 17.2809 40H17.3041C22.4418 39.964 26.0632 38.6025 29.0465 35.5856C32.9496 31.6388 32.8321 26.6915 31.5457 23.6544C30.6227 21.4765 28.8631 19.7075 26.4569 18.5392ZM17.5863 26.9806C15.4374 27.1031 13.205 26.1269 13.0949 24.0358C13.0133 22.4854 14.185 20.7554 17.7182 20.5493C18.1228 20.5257 18.5199 20.5142 18.9099 20.5142C20.1933 20.5142 21.3939 20.6404 22.4854 20.8819C22.0783 26.0281 19.6902 26.8638 17.5863 26.9806Z"
-          fill="transparent"
-          strokeWidth="1"
-          stroke="rgba(0, 0, 0, 0.69)"
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={transition}
-        />
-      </svg>
-      <svg
-        width="35"
-        height="41"
-        viewBox="0 0 35 41"
-        fill="transparent"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <motion.path
-          d="M33 13.5C32.3333 9.66667 28.5 2 18.5 2C6 2 2 10.5 2 20.5C2 30.5 6.5 39 18.5 39C30.5 39 31 29.5 31 27.5C31 25.5 29.5 21 23 19.5C16.5 18 12 20 12 25C12 28.6222 15.5 30 18.5 29.5C21.5 29 23.6 27.5 24.5 23C26 15.5 22 12 19.5 11.5C17 11 14 11.5 12 14.5"
-          stroke="black"
-          stroke-width="4"
-          strokeLinecap="round"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={transition}
-        />
-      </svg>
+      <div className="flex items-center justify-center p-16">
+        <div>
+          <svg
+            width="35"
+            height="41"
+            viewBox="0 0 35 41"
+            fill="transparent"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M33 13.5C32.3333 9.66667 28.5 2 18.5 2C6 2 2 10.5 2 20.5C2 30.5 6.5 39 18.5 39C30.5 39 31 29.5 31 27.5C31 25.5 29.5 21 23 19.5C16.5 18 12 20 12 25C12 28.6222 15.5 30 18.5 29.5C21.5 29 23.6 27.5 24.5 23C26 15.5 22 12 19.5 11.5C17 11 14 11.5 12 14.5"
+              stroke="black"
+              strokeWidth="4"
+            />
+            <motion.path
+              d="M33 13.5C32.3333 9.66667 28.5 2 18.5 2C6 2 2 10.5 2 20.5C2 30.5 6.5 39 18.5 39C30.5 39 31 29.5 31 27.5C31 25.5 29.5 21 23 19.5C16.5 18 12 20 12 25C12 28.6222 15.5 30 18.5 29.5C21.5 29 23.6 27.5 24.5 23C26 15.5 22 12 19.5 11.5C17 11 14 11.5 12 14.5"
+              stroke="white"
+              strokeWidth="4"
+              strokeLinecap="round"
+              initial={{
+                strokeDasharray: `${segmentLength} 230`,
+                strokeDashoffset: 0,
+              }}
+              animate={animationRan ? 'backward' : 'normal'}
+              variants={pathVariants}
+              transition={transition}
+              onAnimationComplete={handleAnimationComplete}
+            />
+          </svg>
+        </div>
+      </div>
     </Section>
   )
 }
