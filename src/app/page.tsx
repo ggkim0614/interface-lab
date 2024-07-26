@@ -8,6 +8,7 @@ import SearchInput from '@/components/sections/search-input'
 import FoldedEmail from '@/components/sections/folded-email'
 import AnimatedSwitch from '@/components/sections/animated-switch'
 import DynamicAIWidget from '@/components/sections/dynamic-ai-widget/'
+import DragToReload from '@/components/sections/drag-to-reload'
 
 export default function Home() {
   return (
@@ -45,12 +46,14 @@ export default function Home() {
             </p>
           </span>
         </div>
+        <DragToReload />
         <DynamicAIWidget />
         <AnimatedSwitch />
         <FoldedEmail />
         <SearchInput />
         <Wallet />
         <DynamicDock />
+
         <footer className="flex w-full items-center justify-between py-8">
           <div className="text-xs text-gray-500">Built with Next.js</div>
           <div className="text-xs text-gray-500">©George Kim, 2024</div>
