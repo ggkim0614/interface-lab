@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Wallet from '@/components/sections/wallet'
-import DynamicDock from '@/components/sections/dynamic-dock'
 import SearchInput from '@/components/sections/search-input'
 import FoldedEmail from '@/components/sections/folded-email'
 import AnimatedSwitch from '@/components/sections/animated-switch'
@@ -52,7 +51,6 @@ export default function Home() {
         <FoldedEmail />
         <SearchInput />
         <Wallet />
-        <DynamicDock />
 
         <footer className="flex w-full items-center justify-between py-8">
           <div className="text-xs text-gray-500">Built with Next.js</div>
