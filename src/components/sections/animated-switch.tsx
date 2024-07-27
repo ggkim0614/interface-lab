@@ -58,7 +58,7 @@ export default function AnimatedSwitch() {
             }}
             className={cn(
               'absolute left-[5px] top-[5px] h-[42px] w-[42px] rounded-[44px] bg-white content-none',
-              isOn && 'shadow-lg'
+              isOn && 'shadow-sm'
             )}
           />
         </motion.label>
