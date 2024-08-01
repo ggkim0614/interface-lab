@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
+import { motion, useAnimation, useMotionValue } from 'framer-motion'
 import Section from './section'
 
 const transition = { duration: 2, ease: 'easeInOut' }
@@ -11,6 +11,8 @@ export default function DragToReload() {
   const [segmentLength, setSegmentLength] = useState(20)
   const opacityControls = useAnimation()
   const dashControls = useAnimation()
+
+  const yDrag = useMotionValue(0)
 
   const handleAnimationComplete = () => {
     if (animationState === 'normal') {
@@ -37,6 +39,8 @@ export default function DragToReload() {
     dashControls.start(animationState)
   }, [animationState, opacityControls, dashControls])
 
+  console.log(yDrag)
+
   return (
     <Section
       title="DragToReload"
@@ -45,7 +49,7 @@ export default function DragToReload() {
       frameHeight={500}
     >
       <div className="flex items-center justify-center p-16">
-        <div className="bg-orange-300">
+        <div className="bg-orange-100">
           <svg
             width="35"
             height="41"
@@ -75,19 +79,21 @@ export default function DragToReload() {
               onAnimationComplete={handleAnimationComplete}
             />
           </svg>
-          <div className="h-[160px] bg-pink-200">
-            <motion.div
-              drag="y"
-              dragTransition={{
-                min: 0,
-                max: 116,
-                modifyTarget: (target) => {
-                  return target > 0 ? 0 : 0
-                },
-              }}
-              className="h-11 w-11 rounded-[16px] bg-blue-500"
-            ></motion.div>
-          </div>
+          <motion.div
+            drag="y"
+            _dragY={yDrag}
+            dragElastic={1}
+            dragConstraints={{ top: 0, bottom: 114 }}
+            dragTransition={{
+              bounceStiffness: 1000,
+              bounceDamping: 50,
+              timeConstant: 105,
+            }}
+            onDragEnd={() => {
+              yDrag.set(0)
+            }}
+            className="h-[160px] w-[300px] bg-lime-200"
+          ></motion.div>
         </div>
       </div>
     </Section>
