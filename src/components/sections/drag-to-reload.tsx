@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import {
   motion,
-  useAnimation,
   useMotionValue,
   useMotionValueEvent,
   useTransform,
@@ -16,23 +15,25 @@ export default function PullToReload() {
   const [animationState, setAnimationState] = useState('normal')
   const [atThreshold, setAtThreshold] = useState(false)
   const [segmentLength, setSegmentLength] = useState(20)
-  const dashControls = useAnimation()
 
   const yDrag = useMotionValue(0)
 
   const pathOpacity = useTransform(yDrag, [0, 50], [1, 0.2])
-  const pathPosition = useTransform(yDrag, [0, 90], [40, -230])
+  const pathPosition = useTransform(yDrag, [0, 90], [40, -180])
 
   useMotionValueEvent(yDrag, 'change', (currentY) => {
     // console.log(currentY)
     // console.log(atThreshold)
-    console.log(yDrag)
 
     if (currentY > 100) {
       setAtThreshold(true)
     } else {
       setAtThreshold(false)
     }
+  })
+
+  useMotionValueEvent(pathPosition, 'change', (latest) => {
+    console.log('Current pathPosition:', latest)
   })
 
   const handleAnimationComplete = () => {
@@ -59,8 +60,8 @@ export default function PullToReload() {
       frameHeight={500}
     >
       <div className="flex items-center justify-center p-16">
-        <div className="bg-orange-100">
-          <div className="flex justify-center bg-blue-50 p-8">
+        <div className="">
+          <div className="flex justify-center border-b-[1px] p-8">
             <svg
               width="35"
               height="41"
@@ -91,7 +92,7 @@ export default function PullToReload() {
               />
             </svg>
           </div>
-          <div className="relative h-[240px] w-[300px] bg-lime-200 font-mono text-[14px]">
+          <div className="relative h-[114px] w-[300px] bg-gray-50 font-mono text-[14px]">
             <motion.div
               drag="y"
               style={{ y: yDrag }}
@@ -103,7 +104,7 @@ export default function PullToReload() {
                 timeConstant: 105,
               }}
               onDragEnd={handleDragEnd}
-              className="h-[120px] w-full bg-white text-center font-mono text-gray-500"
+              className=" flex h-[120px] w-full cursor-pointer items-center justify-center  bg-white text-center font-mono text-gray-500 hover:bg-blue-50"
             >
               Pull down to reload
             </motion.div>
