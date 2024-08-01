@@ -7,7 +7,7 @@ import SearchInput from '@/components/sections/search-input'
 import FoldedEmail from '@/components/sections/folded-email'
 import AnimatedSwitch from '@/components/sections/animated-switch'
 import DynamicAIWidget from '@/components/sections/dynamic-ai-widget/'
-import DragToReload from '@/components/sections/drag-to-reload'
+import PullToReload from '@/components/sections/drag-to-reload'
 
 export default function Home() {
   return (
@@ -45,7 +45,7 @@ export default function Home() {
             </p>
           </span>
         </div>
-        <DragToReload />
+        <PullToReload />
         <DynamicAIWidget />
         <AnimatedSwitch />
         <FoldedEmail />
