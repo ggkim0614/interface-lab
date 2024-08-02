@@ -71,6 +71,8 @@ export default function PullToReload() {
     setLogoPosition(Math.round(latest))
   })
 
+  const dashOffset = useTransform(segmentLengthValue, [0, 230], [0, 230])
+
   const runAnimation = async () => {
     setIsAnimationRunning(true)
 
@@ -151,11 +153,6 @@ export default function PullToReload() {
     setSegmentLength(latest)
   })
 
-  useMotionValueEvent(segmentLengthValue, 'change', (latest) => {
-    console.log('Animated segmentLength:', latest)
-    setSegmentLength(latest)
-  })
-
   useEffect(() => {
     console.log('State segmentLength:', segmentLength)
   }, [segmentLength])
@@ -202,6 +199,7 @@ export default function PullToReload() {
                   strokeDasharray: `${segmentLength} 400`,
                   strokeDashoffset: pathPosition,
                 }}
+                className="override-any-conflicting-styles"
               />
             </svg>
           </motion.div>

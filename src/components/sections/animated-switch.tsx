@@ -56,10 +56,7 @@ export default function AnimatedSwitch() {
             animate={{
               translateX: isOn ? '100%' : 0,
             }}
-            className={cn(
-              'absolute left-[5px] top-[5px] h-[42px] w-[42px] rounded-[44px] bg-white content-none',
-              isOn && 'shadow-sm'
-            )}
+            className="absolute left-[5px] top-[5px] h-[42px] w-[42px] rounded-[44px] bg-white shadow-lg content-none"
           />
         </motion.label>
       </Section>
