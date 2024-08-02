@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   AnimatePresence,
   motion,
@@ -15,6 +15,14 @@ import { Check } from 'lucide-react'
 import Section from './section'
 
 export default function PullToReload() {
+  const pathRef = useRef(null)
+
+  useEffect(() => {
+    if (pathRef.current) {
+      console.log('Total path length:', pathRef.current.getTotalLength())
+    }
+  }, [])
+
   const [atThreshold, setAtThreshold] = useState(false)
   const [segmentLength, setSegmentLength] = useState(20)
   const [runAnimationCycle, setRunAnimationCycle] = useState(false)
@@ -24,8 +32,10 @@ export default function PullToReload() {
   const [svgScale, setSvgScale] = useState(1)
   const [showCompletion, setShowCompletion] = useState(false)
   const [animationFinished, setAnimationFinished] = useState(false)
+  const [pathScale, setPathScale] = useState(1)
 
   const yDrag = useMotionValue(0)
+  const segmentLengthValue = useMotionValue(20)
 
   const yDragOpacity = useTransform(yDrag, [0, 50], [1, 0.2])
   const pathOpacity = useMotionTemplate`${isAnimationRunning ? 0.2 : yDragOpacity}`
@@ -75,8 +85,24 @@ export default function PullToReload() {
     await animate(pathPosition, 20, { duration: 0.5 })
 
     // Step 2: Path travels to end position and fills
-    await animate(pathPosition, -230, { duration: 1 })
-    await animate(segmentLength, 230, { duration: 1 })
+    const duration = 1
+    await Promise.all([
+      animate(pathPosition, -180, { duration }),
+      animate(segmentLengthValue, 200, { duration }),
+    ])
+
+    // Step 3
+    await Promise.all([
+      animate(pathPosition, 20, { duration, ease: 'easeInOut' }),
+      animate(segmentLengthValue, 400, { duration, ease: 'easeInOut' }),
+    ])
+    // Step 4: Quickly move pathPosition back to 20
+    await animate(pathPosition, 20, { duration: 0.3, ease: 'easeOut' })
+
+    // Step 5: Scale up the path
+    setPathScale(1.1)
+    await new Promise((resolve) => setTimeout(resolve, 200))
+    setPathScale(1)
 
     // Animation complete
     setAnimationFinished(true)
@@ -116,6 +142,24 @@ export default function PullToReload() {
     }
   }, [runAnimationCycle])
 
+  useMotionValueEvent(pathPosition, 'change', (latest) => {
+    console.log('Current pathPosition:', latest)
+  })
+
+  useMotionValueEvent(segmentLengthValue, 'change', (latest) => {
+    console.log('Current segmentLength:', latest)
+    setSegmentLength(latest)
+  })
+
+  useMotionValueEvent(segmentLengthValue, 'change', (latest) => {
+    console.log('Animated segmentLength:', latest)
+    setSegmentLength(latest)
+  })
+
+  useEffect(() => {
+    console.log('State segmentLength:', segmentLength)
+  }, [segmentLength])
+
   return (
     <Section
       title="Pull To Reload"
@@ -127,7 +171,7 @@ export default function PullToReload() {
         <div className="">
           <motion.div
             className="flex justify-center p-8"
-            animate={{ scale: svgScale }}
+            animate={{ scale: svgScale * pathScale }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
             <svg
@@ -149,14 +193,13 @@ export default function PullToReload() {
                 }
               />
               <motion.path
+                ref={pathRef}
                 d="M33 13.5C32.3333 9.66667 28.5 2 18.5 2C6 2 2 10.5 2 20.5C2 30.5 6.5 39 18.5 39C30.5 39 31 29.5 31 27.5C31 25.5 29.5 21 23 19.5C16.5 18 12 20 12 25C12 28.6222 15.5 30 18.5 29.5C21.5 29 23.6 27.5 24.5 23C26 15.5 22 12 19.5 11.5C17 11 14 11.5 12 14.5"
                 stroke="black"
                 strokeWidth="4"
                 strokeLinecap="round"
                 style={{
-                  strokeDasharray: isAnimationRunning
-                    ? `${segmentLength} 230`
-                    : `20 230`,
+                  strokeDasharray: `${segmentLength} 400`,
                   strokeDashoffset: pathPosition,
                 }}
               />
@@ -187,79 +230,79 @@ export default function PullToReload() {
               <div className="flex w-full justify-center pb-[24px] pt-2">
                 <div className="h-1 w-10 rounded-full bg-gray-200 "></div>
               </div>
-              <span className="select-none">
-                <AnimatePresence>
-                  {isAnimationRunning ? (
-                    <motion.div
-                      initial={{ scale: 0.5, opacity: 0, filter: 'blur(4px)' }}
-                      animate={{
-                        scale: 1,
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        transition: {
-                          delay: 0.2,
-                        },
-                      }}
-                      exit={{
-                        scale: 0.5,
-                        opacity: 0,
-                        filter: 'blur(4px)',
-                        transition: {
-                          duration: 0.1,
-                        },
-                      }}
-                    >
-                      Loading...
-                    </motion.div>
-                  ) : showCompletion ? (
-                    <motion.div
-                      initial={{ scale: 0.5, opacity: 0, filter: 'blur(4px)' }}
-                      animate={{
-                        scale: 1,
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        transition: {
-                          delay: 0.2,
-                        },
-                      }}
-                      exit={{
-                        scale: 0.5,
-                        opacity: 0,
-                        filter: 'blur(4px)',
-                        transition: {
-                          duration: 0.1,
-                        },
-                      }}
-                      className="flex w-full items-center justify-center"
-                    >
-                      <Check className="h-[18px] w-[14px] pr-[4px] text-green-500" />
-                      Loading complete
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      initial={{ scale: 0.5, opacity: 0, filter: 'blur(4px)' }}
-                      animate={{
-                        scale: 1,
-                        opacity: 1,
-                        filter: 'blur(0px)',
-                        transition: {
-                          delay: 0.2,
-                        },
-                      }}
-                      exit={{
-                        scale: 0.5,
-                        opacity: 0,
-                        filter: 'blur(4px)',
-                        transition: {
-                          duration: 0.1,
-                        },
-                      }}
-                    >
-                      PULL HERE
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </span>
+              <AnimatePresence>
+                {isAnimationRunning ? (
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0, filter: 'blur(4px)' }}
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'blur(0px)',
+                      transition: {
+                        delay: 0.2,
+                      },
+                    }}
+                    exit={{
+                      scale: 0.5,
+                      opacity: 0,
+                      filter: 'blur(4px)',
+                      transition: {
+                        duration: 0.1,
+                      },
+                    }}
+                    className="select-none"
+                  >
+                    Loading...
+                  </motion.div>
+                ) : showCompletion ? (
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0, filter: 'blur(4px)' }}
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'blur(0px)',
+                      transition: {
+                        delay: 0.2,
+                      },
+                    }}
+                    exit={{
+                      scale: 0.5,
+                      opacity: 0,
+                      filter: 'blur(4px)',
+                      transition: {
+                        duration: 0.1,
+                      },
+                    }}
+                    className="flex w-full select-none items-center justify-center"
+                  >
+                    <Check className="h-[18px] w-[14px] pr-[4px] text-green-500" />
+                    Loading complete
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    initial={{ scale: 0.5, opacity: 0, filter: 'blur(4px)' }}
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                      filter: 'blur(0px)',
+                      transition: {
+                        delay: 0.2,
+                      },
+                    }}
+                    exit={{
+                      scale: 0.5,
+                      opacity: 0,
+                      filter: 'blur(4px)',
+                      transition: {
+                        duration: 0.1,
+                      },
+                    }}
+                    className="select-none"
+                  >
+                    PULL HERE
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </motion.div>
         </div>
