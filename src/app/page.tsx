@@ -8,6 +8,7 @@ import FoldedEmail from '@/components/sections/folded-email'
 import AnimatedSwitch from '@/components/sections/animated-switch'
 import DynamicAIWidget from '@/components/sections/dynamic-ai-widget/'
 import PullToReload from '@/components/sections/drag-to-reload'
+import TempFoldTitle from '@/components/sections/temp-fold-title'
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
             </p>
           </span>
         </div>
+        <TempFoldTitle />
         <PullToReload />
         <DynamicAIWidget />
         <AnimatedSwitch />

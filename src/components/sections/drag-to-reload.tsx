@@ -17,12 +17,6 @@ import Section from './section'
 export default function PullToReload() {
   const pathRef = useRef(null)
 
-  useEffect(() => {
-    if (pathRef.current) {
-      console.log('Total path length:', pathRef.current.getTotalLength())
-    }
-  }, [])
-
   const [atThreshold, setAtThreshold] = useState(false)
   const [segmentLength, setSegmentLength] = useState(20)
   const [runAnimationCycle, setRunAnimationCycle] = useState(false)
