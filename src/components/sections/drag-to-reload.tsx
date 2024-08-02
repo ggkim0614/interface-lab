@@ -15,19 +15,18 @@ export default function PullToReload() {
   const [animationState, setAnimationState] = useState('normal')
   const [atThreshold, setAtThreshold] = useState(false)
   const [segmentLength, setSegmentLength] = useState(20)
+  const [runAnimationCycle, setRunAnimationCycle] = useState(false)
 
   const yDrag = useMotionValue(0)
 
-  const pathOpacity = useTransform(yDrag, [0, 50], [1, 0.2])
-  const pathPosition = useTransform(yDrag, [0, 90], [40, -180])
+  const pathOpacity = useTransform(yDrag, [0, 50], [0.5, 0.2])
+  const pathPosition = useTransform(yDrag, [0, 90], [20, -180])
 
   useMotionValueEvent(yDrag, 'change', (currentY) => {
-    // console.log(currentY)
-    // console.log(atThreshold)
-
-    if (currentY > 100) {
+    if (currentY > 100 && !runAnimationCycle) {
       setAtThreshold(true)
-    } else {
+      setRunAnimationCycle(true)
+    } else if (currentY <= 100) {
       setAtThreshold(false)
     }
   })
@@ -44,19 +43,39 @@ export default function PullToReload() {
     }
   }
 
-  const handleDragEnd = () => {
-    animate(yDrag, 0, {
-      type: 'spring',
-      stiffness: 300,
-      damping: 30,
-    })
+  const runAnimation = async () => {
+    // Step 1: Path travels back to initial point
+    await animate(pathPosition, 20, { duration: 0.5 })
+
+    // Step 2: Path travels to end position and fills
+    await animate(pathPosition, -230, { duration: 1 })
+
+    // Reset
+    setRunAnimationCycle(false)
+    setAnimationState('normal')
   }
+
+  const handleDragEnd = () => {
+    if (!runAnimationCycle) {
+      animate(yDrag, 0, {
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+      })
+    }
+  }
+
+  useEffect(() => {
+    if (runAnimationCycle) {
+      runAnimation()
+    }
+  }, [runAnimationCycle])
 
   return (
     <Section
       title="Pull To Reload"
       description="Temp description for DragToReload"
-      labels={['React', 'Framer Motion', 'TailwindCSS', 'Shadcn']}
+      labels={['React', 'Framer Motion', 'TailwindCSS']}
       frameHeight={500}
     >
       <div className="flex items-center justify-center p-16">
@@ -85,7 +104,9 @@ export default function PullToReload() {
                 strokeWidth="4"
                 strokeLinecap="round"
                 style={{
-                  strokeDasharray: `${segmentLength} 230`,
+                  strokeDasharray: runAnimationCycle
+                    ? '0 230'
+                    : `${segmentLength} 230`,
                   strokeDashoffset: pathPosition,
                 }}
                 onAnimationComplete={handleAnimationComplete}
@@ -106,7 +127,7 @@ export default function PullToReload() {
               onDragEnd={handleDragEnd}
               className=" flex h-[120px] w-full cursor-pointer items-center justify-center  bg-white text-center font-mono text-gray-500 hover:bg-blue-50"
             >
-              Pull down to reload
+              {atThreshold ? 'Release to reload' : 'Pull down to reload'}
             </motion.div>
           </div>
         </div>
