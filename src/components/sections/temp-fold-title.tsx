@@ -1,14 +1,12 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
 import {
   AnimatePresence,
   motion,
   useMotionValue,
   useMotionValueEvent,
   useTransform,
-  useMotionTemplate,
-  animate,
   type MotionStyle,
 } from 'framer-motion'
 import Section from './section'
