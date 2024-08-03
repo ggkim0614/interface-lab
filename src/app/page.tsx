@@ -15,13 +15,13 @@ export default function Home() {
     <div className="flex flex-col items-center bg-gray-100 text-3xl">
       <div className="w-full max-w-[600px]">
         <div className="mb-16 mt-6">
-          <Image
+          {/* <Image
             src="/static/images/site-logo.png"
             width={60}
             height={60}
             alt="logo"
             className="mb-4 rounded-[14px] border border-gray-200"
-          />
+          /> */}
           <span>
             <span className="flex items-center gap-3">
               <h2 className="font-semibold tracking-tight text-gray-900">

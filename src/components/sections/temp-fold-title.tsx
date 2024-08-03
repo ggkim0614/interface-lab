@@ -14,6 +14,7 @@ import {
 import Section from './section'
 
 export default function TempFoldTitle() {
+  const [folded, setFolded] = useState(false)
   return (
     <Section
       title="Temp title for fold"
@@ -21,7 +22,9 @@ export default function TempFoldTitle() {
       labels={['React', 'Framer Motion', 'TailwindCSS']}
       frameHeight={500}
     >
-      <div>hello world</div>
+      <motion.div className=" h-[200px] w-[200px] bg-orange-200 font-mono">
+        hello world
+      </motion.div>
     </Section>
   )
 }
