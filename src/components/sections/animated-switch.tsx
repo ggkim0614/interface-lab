@@ -43,7 +43,7 @@ export default function AnimatedSwitch() {
             'relative flex h-[52px] w-[94px] cursor-pointer items-center justify-between rounded-[100px] bg-gray-300 transition-colors',
             isHovered && 'bg-gray-400',
             isOn &&
-              'shadow-effect animated-background-fast bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'
+              'shadow-effect animated-background-fast bg-noise bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'
           )}
           htmlFor={`react-switch-new`}
         >

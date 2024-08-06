@@ -18,10 +18,11 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
+    "@vercel/remix-builder": "^2.2.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
-    "framer-motion": "^11.3.19",
+    "framer-motion": "^11.3.21",
     "lucide-react": "^0.418.0",
     "next": "^14.2.5",
     "react": "^18.3.1",
@@ -31,7 +32,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^22.0.2",
+    "@types/node": "^22.1.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "eslint": "9.8.0",
@@ -45,7 +46,7 @@
     "tailwindcss": "^3.4.7",
     "turbo": "^2.0.11",
     "typescript": "^5.5.4",
-    "vercel": "^35.2.2"
+    "vercel": "^35.2.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mdx}": [

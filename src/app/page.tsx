@@ -27,7 +27,7 @@ export default function Home() {
               <h2 className="font-semibold tracking-tight text-gray-900">
                 UI Playground
               </h2>
-              <div className="flex items-center gap-1 rounded-md bg-blue-200 px-2 py-1 text-xs  font-semibold text-blue-500">
+              <div className="flex items-center gap-1 rounded-md bg-blue-200 px-2 py-1 text-xs font-semibold text-blue-500">
                 <motion.div
                   animate={{
                     scale: [1.5, 1],
@@ -46,7 +46,7 @@ export default function Home() {
             </p>
           </span>
         </div>
-        <TempFoldTitle />
+        {/* <TempFoldTitle /> */}
         <PullToReload />
         <DynamicAIWidget />
         <AnimatedSwitch />
