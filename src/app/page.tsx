@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import Wallet from '@/components/sections/wallet'
 import SearchInput from '@/components/sections/search-input'
 import FoldedEmail from '@/components/sections/folded-email'
@@ -13,30 +12,29 @@ import TempFoldTitle from '@/components/sections/temp-fold-title'
 export default function Home() {
   return (
     <div className="flex flex-col items-center bg-gray-100 text-3xl">
-      <div className="w-full max-w-[600px]">
-        <div className="mb-16 mt-6">
+      <div className="w-full max-w-[600px] px-4">
+        <div className="mb-16 mt-12">
           <span>
-            <span className="flex items-center gap-3">
-              <h2 className="font-jetbrains font-semibold tracking-tight text-gray-900">
-                Interface Playground
-              </h2>
-              <div className="flex items-center gap-1 rounded-md bg-blue-200 px-2 py-1 text-xs font-semibold text-blue-500">
-                <motion.div
-                  animate={{
-                    scale: [1.5, 1],
-                  }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                  }}
-                  className="h-1 w-1 rounded-full bg-blue-500"
-                />
+            <div className="flex items-center gap-3">
+              <div className="font-jbm text-[32px] font-semibold text-gray-900">
+                Interface Lab
+              </div>
+              <div className="font-jbm flex items-center gap-1 rounded-md bg-gray-700 px-[6px] py-[2px] text-xs font-semibold text-gray-50">
                 BETA
               </div>
-            </span>
-            <p className="text-base tracking-tight text-gray-600">
-              Shelter for experimental prototypes
-            </p>
+            </div>
+            <div className="font-jbm pt-4 text-[20px] tracking-tight text-gray-500">
+              Shelter for design explorations and prototypes
+            </div>
+            <div className="font-jbm pt-4 text-[16px] tracking-tight">
+              Created by&nbsp;
+              <a
+                href="https://georgekim.studio/"
+                className="font-semibold hover:underline"
+              >
+                @George Kim
+              </a>
+            </div>
           </span>
         </div>
         {/* <TempFoldTitle /> */}

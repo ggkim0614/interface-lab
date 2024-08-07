@@ -23,19 +23,19 @@ export default function Section({
     1000: `h-[1000px]`,
   } as any
   return (
-    <section className="mb-24 items-center justify-center">
+    <section className="mb-24 w-full items-center justify-center">
       <div className="pb-8">
-        <div className="text-lg font-semibold tracking-tight text-slate-900">
+        <div className="font-jbm text-[20px] font-semibold leading-none text-slate-900">
           {title}
         </div>
-        <div className="mb-4 text-sm tracking-tight text-slate-700">
+        <div className="font-jbm mb-4 text-[16px] tracking-tight text-slate-600">
           {description}
         </div>
         <div className="flex items-center gap-2">
           {labels.map((label) => (
             <div
               key={label}
-              className="rounded-md bg-slate-200 px-2 py-1 font-mono text-xs text-slate-600"
+              className="font-jbm rounded-md bg-slate-200 px-[10px] py-[8px] text-[14px] leading-none text-slate-600"
             >
               {label}
             </div>

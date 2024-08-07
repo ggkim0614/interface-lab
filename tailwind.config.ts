@@ -75,7 +75,7 @@ const config = {
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
-        'jetbrains': ['JetBrainsMono', 'sans-serif'],
+        'jbm': ['JetBrainsMono', 'sans-serif'],
       },
     },
   },
