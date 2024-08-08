@@ -30,7 +30,7 @@ export default function RootLayout({
 export const metadata: Metadata = {
   title: {
     template: '%s | DKRM Studio',
-    default: 'UI Playground',
+    default: 'Interface Lab',
   },
-  description: 'Shelter for experimental prototypes',
+  description: 'Shelter for design explorations and prototypes',
 }
