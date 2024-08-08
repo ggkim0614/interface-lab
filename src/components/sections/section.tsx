@@ -23,19 +23,19 @@ export default function Section({
     1000: `h-[1000px]`,
   } as any
   return (
-    <section className="mb-24 w-full items-center justify-center">
+    <div className="mb-24 w-full items-center justify-center">
       <div className="pb-8">
-        <div className="font-jbm text-[20px] font-semibold leading-none text-slate-900">
+        <div className="font-jbm text-[16px] font-bold leading-none text-slate-900">
           {title}
         </div>
-        <div className="font-jbm mb-4 text-[16px] tracking-tight text-slate-600">
+        <div className="mb-2 font-jbm text-[14px] font-light tracking-tight text-slate-600">
           {description}
         </div>
         <div className="flex items-center gap-2">
           {labels.map((label) => (
             <div
               key={label}
-              className="font-jbm rounded-md bg-slate-200 px-[10px] py-[8px] text-[14px] leading-none text-slate-600"
+              className="rounded-md bg-slate-200 px-[10px] py-[8px] font-jbm text-[12px] leading-none text-slate-600"
             >
               {label}
             </div>
@@ -50,6 +50,6 @@ export default function Section({
       >
         {children}
       </div>
-    </section>
+    </div>
   )
 }
