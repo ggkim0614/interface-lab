@@ -25,10 +25,10 @@ export default function Section({
   return (
     <div className="mb-24 w-full items-center justify-center">
       <div className="pb-8">
-        <div className="font-jbm text-[16px] font-bold leading-none text-slate-900">
+        <div className="font-jbm text-[18px] font-bold leading-none text-slate-900">
           {title}
         </div>
-        <div className="mb-2 font-jbm text-[14px] font-light tracking-tight text-slate-600">
+        <div className="mb-2 font-jbm text-[16px] font-light tracking-tight text-slate-600">
           {description}
         </div>
         <div className="flex items-center gap-2">

@@ -15,18 +15,14 @@ export default function Home() {
       <div className="w-full max-w-[600px] px-4">
         <div className="mb-16 mt-12">
           <span>
-            <div className="flex items-center gap-3">
-              <div className="font-jbm text-[20px] font-semibold tracking-tight text-gray-900">
-                Interface Lab
-              </div>
-              <div className="flex items-center gap-1 rounded-md bg-gray-700 px-[6px] py-[4px] font-jbm text-[12px] font-semibold leading-none text-gray-50">
-                BETA
-              </div>
+            <div className="pb-2 font-jbm text-[48px] font-bold leading-tight tracking-tight text-gray-900">
+              Interface Lab.
             </div>
-            <div className="font-jbm text-[16px] tracking-tight text-gray-500">
+
+            <div className="font-jbm text-[16px] leading-normal text-gray-500">
               Shelter for design explorations and prototypes
             </div>
-            <div className="pt-2 font-jbm text-[14px]">
+            <div className="pt-2 font-jbm text-[14px] font-medium">
               Created by&nbsp;
               <a
                 href="https://georgekim.studio/"

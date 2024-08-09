@@ -77,6 +77,13 @@ const config = {
         sans: ['var(--font-sans)', ...fontFamily.sans],
         'jbm': ['JetBrainsMono', 'sans-serif'],
       },
+      fontWeight: {
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
