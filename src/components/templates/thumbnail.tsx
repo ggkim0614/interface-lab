@@ -18,7 +18,7 @@ type ComponentThumbnailProps = {
   description: string
   thumbnailSrc: string
   fullComponent: React.ReactNode
-  stack: [string]
+  stack: string[]
 }
 
 export const Thumbnail = ({

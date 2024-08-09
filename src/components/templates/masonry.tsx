@@ -9,7 +9,7 @@ type MasonryProps = {
     description: string
     thumbnailSrc: string
     component: React.ReactNode
-    stack: [string]
+    stack: string[]
   }[]
 }
 
