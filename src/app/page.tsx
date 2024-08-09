@@ -1,51 +1,64 @@
 'use client'
 
 import Image from 'next/image'
-import Wallet from '@/components/sections/wallet'
-import SearchInput from '@/components/sections/search-input'
-import FoldedEmail from '@/components/sections/folded-email'
-import AnimatedSwitch from '@/components/sections/animated-switch'
-import DynamicAIWidget from '@/components/sections/dynamic-ai-widget/'
-import PullToReload from '@/components/sections/drag-to-reload'
-import TempFoldTitle from '@/components/sections/temp-fold-title'
+import Wallet from '@/components/prototypes/wallet'
+import SearchInput from '@/components/prototypes/search-input'
+import FoldedEmail from '@/components/prototypes/folded-email'
+import AnimatedSwitch from '@/components/prototypes/animated-switch'
+import DynamicAIWidget from '@/components/prototypes/dynamic-ai-widget'
+import PullToReload from '@/components/prototypes/drag-to-reload'
+import TempFoldTitle from '@/components/prototypes/temp-fold-title'
+import Masonry from '@/components/templates/masonry'
+import Footer from '@/components/footer'
+import Navbar from '@/components/navbar'
+
+const components = [
+  {
+    title: 'Wallet',
+    description: 'Interactive wallet component',
+    previewSrc: '/static/gifs/wallet.gif',
+    component: <Wallet />,
+  },
+  {
+    title: 'Search Input',
+    description: 'Animated search input',
+    previewSrc: '/static/gifs/search-input.gif',
+    component: <SearchInput />,
+  },
+  {
+    title: 'Folded Email',
+    description: 'Email component with folding animation',
+    previewSrc: '/static/gifs/folded-email.gif',
+    component: <FoldedEmail />,
+  },
+  {
+    title: 'Animated Switch',
+    description: 'Switch with smooth animation',
+    previewSrc: '/static/gifs/animated-switch.gif',
+    component: <AnimatedSwitch />,
+  },
+  {
+    title: 'Dynamic AI Widget',
+    description: 'AI-powered interactive widget',
+    previewSrc: '/static/gifs/dynamic-ai-widget.gif',
+    component: <DynamicAIWidget />,
+  },
+  {
+    title: 'Pull To Reload',
+    description: 'Pull-to-reload animation',
+    previewSrc: '/static/gifs/pull-to-reload.gif',
+    component: <PullToReload />,
+  },
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center bg-gray-100 text-3xl">
-      <div className="w-full max-w-[600px] px-4">
-        <div className="mb-16 mt-12">
-          <span>
-            <div className="pb-2 font-jbm text-[48px] font-bold leading-tight tracking-tight text-gray-900">
-              Interface Lab.
-            </div>
-
-            <div className="font-jbm text-[16px] leading-normal text-gray-500">
-              Shelter for design explorations and prototypes
-            </div>
-            <div className="pt-2 font-jbm text-[14px] font-medium">
-              Created by&nbsp;
-              <a
-                href="https://georgekim.studio/"
-                className="font-semibold hover:underline"
-              >
-                @George Kim
-              </a>
-            </div>
-          </span>
-        </div>
-        {/* <TempFoldTitle /> */}
-        <PullToReload />
-        <DynamicAIWidget />
-        <AnimatedSwitch />
-        <FoldedEmail />
-        <SearchInput />
-        <Wallet />
-
-        <footer className="flex w-full items-center justify-between py-8">
-          <div className="text-xs text-gray-500">Built with Next.js</div>
-          <div className="text-xs text-gray-500">©George Kim, 2024</div>
-        </footer>
+    <>
+      <Navbar />
+      <div className="w-full bg-orange-50 px-4">
+        <Masonry components={components} />
       </div>
-    </div>
+      <Footer />
+    </>
   )
 }

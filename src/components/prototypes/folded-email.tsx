@@ -12,7 +12,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { cn } from '@/lib/utils'
 import { ArrowDown, Bookmark, ChevronDown, Reply, Trash } from 'lucide-react'
-import Section from './section'
+import Section from '../templates/section'
 
 const variants = {
   collapsed: {
@@ -189,8 +189,7 @@ export default function FoldedEmail() {
                 </p>
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  className="flex h-[22px] w-full items-center justify-center gap-[2px] rounded-[6px]
-                   bg-gray-200 text-[11px] tracking-tight text-gray-500 hover:bg-gray-400"
+                  className="flex h-[22px] w-full items-center justify-center gap-[2px] rounded-[6px] bg-gray-200 text-[11px] tracking-tight text-gray-500 hover:bg-gray-400"
                 >
                   Click to read more&nbsp;
                   <ChevronDown className="w-[10px] opacity-60" />
@@ -207,7 +206,7 @@ export default function FoldedEmail() {
                   } as MotionStyle
                 }
                 className={cn(
-                  'email-section-shadow origin-bottom-right justify-between  bg-gray-50 text-base brightness-[--brightness]',
+                  'email-section-shadow origin-bottom-right justify-between bg-gray-50 text-base brightness-[--brightness]',
                   isBeingDragged ? 'shadow-2xl' : 'shadow-md'
                 )}
               >
@@ -254,7 +253,7 @@ export default function FoldedEmail() {
                       }}
                       className="grid grid-cols-3 gap-[10px] rounded-[36px]"
                     >
-                      <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-gray-700 text-[14px] font-medium text-gray-100 transition hover:bg-gray-600  hover:text-white">
+                      <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-gray-700 text-[14px] font-medium text-gray-100 transition hover:bg-gray-600 hover:text-white">
                         <Bookmark
                           className="h-[14px] w-[14px] opacity-50"
                           strokeWidth={2.5}
@@ -265,7 +264,7 @@ export default function FoldedEmail() {
                         <Trash className="strokeWidth={2.5} h-[14px] w-[14px] opacity-50" />
                         Delete
                       </button>
-                      <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-blue-500 text-[14px] font-medium  text-white transition hover:bg-blue-600">
+                      <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-blue-500 text-[14px] font-medium text-white transition hover:bg-blue-600">
                         <Reply
                           className="h-[14px] w-[14px] opacity-50"
                           strokeWidth={2.5}

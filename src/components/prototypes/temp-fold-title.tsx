@@ -9,7 +9,7 @@ import {
   useTransform,
   type MotionStyle,
 } from 'framer-motion'
-import Section from './section'
+import Section from '../templates/section'
 
 export default function TempFoldTitle() {
   const [folded, setFolded] = useState(false)
@@ -20,7 +20,7 @@ export default function TempFoldTitle() {
       labels={['React', 'Framer Motion', 'TailwindCSS']}
       frameHeight={500}
     >
-      <motion.div className=" h-[200px] w-[200px] bg-orange-200 font-mono">
+      <motion.div className="h-[200px] w-[200px] bg-orange-200 font-mono">
         hello world
       </motion.div>
     </Section>

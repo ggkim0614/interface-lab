@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Section from './section'
+import Section from '../templates/section'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 

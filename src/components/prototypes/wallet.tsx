@@ -1,6 +1,6 @@
 'use client'
 
-import Section from './section'
+import Section from '../templates/section'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -45,7 +45,7 @@ export default function Wallet() {
             className="mb-11"
           />
         </motion.div>
-        <div className=" w-full px-6">
+        <div className="w-full px-6">
           <div className="mb-6 flex h-full w-full items-center justify-between">
             <Input
               className="w-[240px] rounded-[14px] border border-slate-600 bg-gray-700 text-lg text-blue-200"
@@ -70,7 +70,7 @@ export default function Wallet() {
             </Avatar>
           </div>
           <div className="mb-4">
-            <div className=" flex items-center gap-1">
+            <div className="flex items-center gap-1">
               <div className="text-[20px] font-medium tracking-tight text-white">
                 Suggestion
               </div>
@@ -211,7 +211,7 @@ export default function Wallet() {
                   variant="ghost"
                   size="icon"
                 >
-                  <Plus className="w-6 text-gray-500 " />
+                  <Plus className="w-6 text-gray-500" />
                 </Button>
               </motion.div>
               <motion.div whileTap={{ scale: 0.95 }}>
@@ -276,7 +276,7 @@ export default function Wallet() {
         </AnimatePresence>
         <AnimatePresence>
           {isCardActive ? (
-            <motion.div className="absolute top-0 z-10 m-0 h-full ">
+            <motion.div className="absolute top-0 z-10 m-0 h-full">
               <motion.div className="" layoutId="status-bar">
                 <Image
                   src="/static/images/Status Bar.png"
@@ -286,7 +286,7 @@ export default function Wallet() {
                   className="mb-11"
                 />
               </motion.div>
-              <div className=" w-full px-6">
+              <div className="w-full px-6">
                 <motion.div
                   exit={{ opacity: 0, transition: { duration: 0.05 } }}
                   className="mb-6 flex w-full items-center justify-between"

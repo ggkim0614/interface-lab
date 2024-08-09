@@ -12,7 +12,7 @@ import {
   type MotionStyle,
 } from 'framer-motion'
 import { Check } from 'lucide-react'
-import Section from './section'
+import Section from '../templates/section'
 
 export default function PullToReload() {
   const pathRef = useRef(null)
@@ -198,7 +198,7 @@ export default function PullToReload() {
             </svg>
           </motion.div>
           <motion.div
-            className="relative h-[114px] w-[300px]  bg-gray-50 font-mono text-[14px]"
+            className="relative h-[114px] w-[300px] bg-gray-50 font-mono text-[14px]"
             style={{ backgroundColor: backgroundColor }}
           >
             <div
@@ -220,7 +220,7 @@ export default function PullToReload() {
               className="absolute z-50 h-[120px] w-full cursor-pointer items-center justify-center rounded-t-lg border-t-[1px] border-t-gray-200 bg-white text-center font-mono text-gray-500"
             >
               <div className="flex w-full justify-center pb-[24px] pt-2">
-                <div className="h-1 w-10 rounded-full bg-gray-200 "></div>
+                <div className="h-1 w-10 rounded-full bg-gray-200"></div>
               </div>
               <AnimatePresence>
                 {isAnimationRunning ? (

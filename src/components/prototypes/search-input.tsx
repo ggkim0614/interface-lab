@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import Section from './section'
+import Section from '../templates/section'
 import { AnimatePresence, motion } from 'framer-motion'
 
 export default function SearchInput() {
@@ -68,7 +68,7 @@ export default function SearchInput() {
             <span
               className={cn(
                 'absolute inset-y-0 right-0 top-0 z-10 mr-3 inline-flex items-center justify-center gap-1',
-                isToggled && 'rounded-[6px] px-[6px] '
+                isToggled && 'rounded-[6px] px-[6px]'
               )}
             >
               <AnimatePresence>
@@ -122,7 +122,7 @@ export default function SearchInput() {
                 >
                   <motion.div className="pt-1">
                     <motion.div>
-                      <p className="flex items-center justify-between bg-white px-3 pb-2 pt-5 text-xs text-gray-400 ">
+                      <p className="flex items-center justify-between bg-white px-3 pb-2 pt-5 text-xs text-gray-400">
                         <div>Recent searches</div>
                         <div className="cursor-pointer hover:text-red-500">
                           Clear

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Section from '../section'
+import Section from '../../templates/section'
 import Items from './items'
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
