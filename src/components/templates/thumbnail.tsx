@@ -1,21 +1,19 @@
-// components/ComponentPreview.tsx
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerClose,
 } from '@/components/ui/drawer'
 import { Button } from '@/components/ui/button'
 
-type ThumbnailProps = {
+type ComponentThumbnailProps = {
   title: string
   description: string
   thumbnailSrc: string
@@ -27,31 +25,40 @@ export const Thumbnail = ({
   description,
   thumbnailSrc,
   fullComponent,
-}: ThumbnailProps) => {
+}: ComponentThumbnailProps) => {
   const [isOpen, setIsOpen] = useState(false)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    // Prevent drawer from closing when interacting with content
+    e.stopPropagation()
+  }
 
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
-      <DrawerTrigger asChild>
-        <div className="cursor-pointer">
-          <Image
-            src={thumbnailSrc}
-            alt={title}
-            width="0"
-            height="0"
-            className="h-auto w-full rounded-lg object-cover"
-          />
-          <div className="mt-2 flex gap-2">
-            <div className="font-jbm text-[16px] font-semibold">{title}</div>
-          </div>
-        </div>
-      </DrawerTrigger>
-      <DrawerContent>
+      <div className="cursor-pointer" onClick={() => setIsOpen(true)}>
+        <Image
+          src={thumbnailSrc}
+          alt={title}
+          width={400}
+          height={300}
+          className="rounded-lg object-cover"
+        />
+        <h3 className="mt-2 text-lg font-semibold">{title}</h3>
+        <p className="text-sm text-gray-600">{description}</p>
+      </div>
+      <DrawerContent className="max-h-[80vh] overflow-hidden">
         <DrawerHeader>
           <DrawerTitle>{title}</DrawerTitle>
           <DrawerDescription>{description}</DrawerDescription>
         </DrawerHeader>
-        <div className="p-4">{fullComponent}</div>
+        <div
+          ref={contentRef}
+          className="flex-1 overflow-y-auto p-4"
+          onPointerDown={handlePointerDown}
+        >
+          {fullComponent}
+        </div>
         <DrawerFooter>
           <DrawerClose asChild>
             <Button variant="outline">Close</Button>
