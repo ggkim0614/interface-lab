@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import Section from '../templates/section'
+import Section from '../templates/production'
 import { AnimatePresence, motion } from 'framer-motion'
 
 export default function SearchInput() {

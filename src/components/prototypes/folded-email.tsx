@@ -12,7 +12,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { cn } from '@/lib/utils'
 import { ArrowDown, Bookmark, ChevronDown, Reply, Trash } from 'lucide-react'
-import Section from '../templates/section'
+import Section from '../templates/production'
 
 const variants = {
   collapsed: {

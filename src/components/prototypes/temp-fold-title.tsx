@@ -9,7 +9,7 @@ import {
   useTransform,
   type MotionStyle,
 } from 'framer-motion'
-import Section from '../templates/section'
+import Section from '../templates/production'
 
 export default function TempFoldTitle() {
   const [folded, setFolded] = useState(false)

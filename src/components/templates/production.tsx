@@ -17,7 +17,7 @@ export default function Section({ frameHeight, children }: SectionProps) {
     1000: `h-[1000px]`,
   } as any
   return (
-    <div className="mb-24 w-full items-center justify-center">
+    <div className="w-full items-center justify-center">
       <div
         className={cn(
           `flex w-full items-center justify-center rounded-md border bg-white`,

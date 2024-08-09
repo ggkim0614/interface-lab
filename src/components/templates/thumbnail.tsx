@@ -56,7 +56,7 @@ export const Thumbnail = ({
           <DrawerDescription className="font-jbm">
             {description}
           </DrawerDescription>
-          <div className="flex w-full flex-wrap items-center justify-center gap-2 md:justify-center">
+          <div className="flex w-full flex-wrap items-center justify-center gap-2 sm:justify-start">
             {stack.map((stack, index) => (
               <div
                 key={index}

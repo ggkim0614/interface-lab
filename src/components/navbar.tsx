@@ -1,12 +1,14 @@
 function Navbar() {
   return (
     <div className="flex flex-wrap items-center justify-between gap-4 px-4 py-4">
-      <span className="flex gap-1">
+      <span className="flex gap-2">
         <div className="font-jbm text-[16px] font-bold leading-tight tracking-tight text-gray-900">
           INTERFACE LAB.
         </div>
 
-        <div className="font-jbm text-[14px] font-medium">v1.0</div>
+        <div className="font-jbm text-[14px] font-medium text-gray-500">
+          v1.0
+        </div>
       </span>
 
       <div className="font-jbm text-[16px] font-medium leading-normal text-gray-500">

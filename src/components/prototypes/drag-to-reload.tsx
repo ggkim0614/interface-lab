@@ -12,7 +12,7 @@ import {
   type MotionStyle,
 } from 'framer-motion'
 import { Check } from 'lucide-react'
-import Section from '../templates/section'
+import Section from '../templates/production'
 
 export default function PullToReload() {
   const pathRef = useRef(null)

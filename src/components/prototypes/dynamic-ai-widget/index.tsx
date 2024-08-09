@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Section from '../../templates/section'
+import Section from '../../templates/production'
 import Items from './items'
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
@@ -50,7 +50,7 @@ export default function DynamicAIWidget() {
               <motion.div
                 transition={{ type: 'spring', duration: 0.6 }}
                 layoutId="wrapper"
-                className="relative w-full max-w-96 overflow-hidden border border-border bg-gray-50 p-2"
+                className="w-full max-w-96 overflow-hidden border bg-gray-50 p-2"
                 style={{ borderRadius: 12 }}
               >
                 <Items onCloseHandler={onIconClickHandler} isOpen={isOpen} />
