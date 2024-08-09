@@ -16,38 +16,44 @@ const components = [
   {
     title: 'Wallet',
     description: 'Interactive wallet component',
-    thumbnailSrc: '/static/gifs/wallet.gif',
+    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <Wallet />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Search Input',
     description: 'Animated search input',
-    thumbnailSrc: '/static/gifs/search-input.gif',
+    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <SearchInput />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Folded Email',
     description: 'Email component with folding animation',
-    thumbnailSrc: '/static/gifs/folded-email.gif',
+    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <FoldedEmail />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Animated Switch',
     description: 'Switch with smooth animation',
-    thumbnailSrc: '/static/gifs/animated-switch.gif',
+    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <AnimatedSwitch />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Dynamic AI Widget',
     description: 'AI-powered interactive widget',
-    thumbnailSrc: '/static/gifs/dynamic-ai-widget.gif',
+    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <DynamicAIWidget />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Pull To Reload',
     description: 'Pull-to-reload animation',
-    thumbnailSrc: '/static/gifs/pull-to-reload.gif',
+    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <PullToReload />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
 ]
 
@@ -55,7 +61,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="w-full bg-orange-50 px-4">
+      <div className="w-full px-4">
         <Masonry components={components} />
       </div>
       <Footer />
