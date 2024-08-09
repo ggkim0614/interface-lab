@@ -127,6 +127,12 @@
     -moz-animation: animation 1s ease-out infinite;
     animation: animation 1s ease-out infinite;
   }
+  .animated-background-slow {
+    background-size: 500%;
+    -webkit-animation: animation 2.5s linear infinite;
+    -moz-animation: animation 2.5s linear infinite;
+    animation: animation 2.5s linear infinite;
+  }
   .large-text {
     font-size: 40px;
   }
