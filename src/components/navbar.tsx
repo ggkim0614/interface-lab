@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <div className="flex items-center justify-between bg-blue-50 px-4 py-4">
+    <div className="flex flex-wrap items-center justify-between gap-4 bg-blue-50 px-4 py-4">
       <span className="flex gap-1">
         <div className="font-jbm text-[16px] font-bold leading-tight tracking-tight text-gray-900">
           INTERFACE LAB.

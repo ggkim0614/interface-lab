@@ -16,37 +16,37 @@ const components = [
   {
     title: 'Wallet',
     description: 'Interactive wallet component',
-    previewSrc: '/static/gifs/wallet.gif',
+    thumbnailSrc: '/static/gifs/wallet.gif',
     component: <Wallet />,
   },
   {
     title: 'Search Input',
     description: 'Animated search input',
-    previewSrc: '/static/gifs/search-input.gif',
+    thumbnailSrc: '/static/gifs/search-input.gif',
     component: <SearchInput />,
   },
   {
     title: 'Folded Email',
     description: 'Email component with folding animation',
-    previewSrc: '/static/gifs/folded-email.gif',
+    thumbnailSrc: '/static/gifs/folded-email.gif',
     component: <FoldedEmail />,
   },
   {
     title: 'Animated Switch',
     description: 'Switch with smooth animation',
-    previewSrc: '/static/gifs/animated-switch.gif',
+    thumbnailSrc: '/static/gifs/animated-switch.gif',
     component: <AnimatedSwitch />,
   },
   {
     title: 'Dynamic AI Widget',
     description: 'AI-powered interactive widget',
-    previewSrc: '/static/gifs/dynamic-ai-widget.gif',
+    thumbnailSrc: '/static/gifs/dynamic-ai-widget.gif',
     component: <DynamicAIWidget />,
   },
   {
     title: 'Pull To Reload',
     description: 'Pull-to-reload animation',
-    previewSrc: '/static/gifs/pull-to-reload.gif',
+    thumbnailSrc: '/static/gifs/pull-to-reload.gif',
     component: <PullToReload />,
   },
 ]
