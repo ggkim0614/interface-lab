@@ -17,7 +17,7 @@ const Masonry = ({ components }: MasonryProps) => {
   return (
     <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
       {components.map((component, index) => (
-        <div key={index} className="mb-4">
+        <div key={index} className="mb-4 break-inside-avoid">
           <Thumbnail
             title={component.title}
             description={component.description}

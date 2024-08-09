@@ -14,30 +14,38 @@ import Navbar from '@/components/navbar'
 
 const components = [
   {
+    title: 'Pull To Reload',
+    description: 'Pull-to-reload animation',
+    thumbnailSrc: '/static/gifs/pull_to_reload.gif',
+    component: <PullToReload />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
+  {
     title: 'Wallet',
     description: 'Interactive wallet component',
-    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
+    thumbnailSrc: '/static/gifs/wallet.gif',
     component: <Wallet />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
+
+  {
+    title: 'Folded Email',
+    description: 'Email component with folding animation',
+    thumbnailSrc: '/static/gifs/folded_email.gif',
+    component: <FoldedEmail />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Search Input',
     description: 'Animated search input',
-    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
+    thumbnailSrc: '/static/gifs/dynamic_input.gif',
     component: <SearchInput />,
-    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  },
-  {
-    title: 'Folded Email',
-    description: 'Email component with folding animation',
-    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
-    component: <FoldedEmail />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Animated Switch',
     description: 'Switch with smooth animation',
-    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
+    thumbnailSrc: '/static/gifs/switch.gif',
     component: <AnimatedSwitch />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
@@ -46,13 +54,6 @@ const components = [
     description: 'AI-powered interactive widget',
     thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <DynamicAIWidget />,
-    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  },
-  {
-    title: 'Pull To Reload',
-    description: 'Pull-to-reload animation',
-    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
-    component: <PullToReload />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
 ]
