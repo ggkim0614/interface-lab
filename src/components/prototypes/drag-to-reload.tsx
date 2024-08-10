@@ -36,15 +36,15 @@ export default function PullToReload() {
 
   const dragPercentage = useTransform(yDrag, [0, 100], [0, 100])
   const logoPositionValue = useTransform(yDrag, [0, 100], [0, 24])
-  const backgroundColor = useTransform(
+  const thresholdLabelColor = useTransform(
     yDrag,
-    [0, 30, 60, 100],
-    ['#ffffff', '#ffffff', '#22222', '#50C878']
+    [0, 70, 100],
+    ['#ffffff', '#22222', '#50C878']
   )
-  const pathPosition = useTransform(yDrag, [0, 100], [20, -180])
+  const pathPosition = useTransform(yDrag, [0, 100], [20, -165])
 
   useMotionValueEvent(yDrag, 'change', (currentY) => {
-    if (currentY > 90 && !atThreshold) {
+    if (currentY > 100 && !atThreshold) {
       setAtThreshold(true)
       setSvgScale(1.2)
       setTimeout(() => setSvgScale(1), 150)
@@ -158,25 +158,25 @@ export default function PullToReload() {
       labels={['React', 'Framer Motion', 'TailwindCSS']}
       frameHeight={500}
     >
-      <div className="flex items-center justify-center p-16">
-        <div className="">
+      <div className="flex items-center justify-center p-12">
+        <div>
           <motion.div
             className="flex justify-center p-8"
             animate={{ scale: svgScale * pathScale }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
             <svg
-              width="35"
-              height="41"
-              viewBox="0 0 35 41"
+              width="39"
+              height="49"
+              viewBox="0 0 39 49"
               fill="transparent"
               xmlns="http://www.w3.org/2000/svg"
               style={{ marginTop: logoPosition }}
             >
               <motion.path
-                d="M33 13.5C32.3333 9.66667 28.5 2 18.5 2C6 2 2 10.5 2 20.5C2 30.5 6.5 39 18.5 39C30.5 39 31 29.5 31 27.5C31 25.5 29.5 21 23 19.5C16.5 18 12 20 12 25C12 28.6222 15.5 30 18.5 29.5C21.5 29 23.6 27.5 24.5 23C26 15.5 22 12 19.5 11.5C17 11 14 11.5 12 14.5"
+                d="M2 2.9997C4.25622 6.18762 10.9917 12.4702 19.8839 12.0969C28.4111 11.739 28.1499 2 19.8839 2C12.8829 2 10.0627 8.93123 10.3281 15.6292C10.5935 22.3272 14.741 28.492 21.7751 28.492C28.4111 28.492 31.0654 21.4608 31.0654 14.3962C31.0654 21.1409 31.0654 32.3971 31.0654 39.0839C31.0654 43.1875 29.7382 46.4817 25.7899 46.4817C21.8415 46.4817 19.3093 42.7822 20.3484 39.0839C21.377 35.4232 25.0931 32.8573 38 26.5259"
                 stroke="black"
-                strokeWidth="4"
+                stroke-width="3.81654"
                 style={
                   {
                     opacity: pathOpacity,
@@ -185,10 +185,9 @@ export default function PullToReload() {
               />
               <motion.path
                 ref={pathRef}
-                d="M33 13.5C32.3333 9.66667 28.5 2 18.5 2C6 2 2 10.5 2 20.5C2 30.5 6.5 39 18.5 39C30.5 39 31 29.5 31 27.5C31 25.5 29.5 21 23 19.5C16.5 18 12 20 12 25C12 28.6222 15.5 30 18.5 29.5C21.5 29 23.6 27.5 24.5 23C26 15.5 22 12 19.5 11.5C17 11 14 11.5 12 14.5"
+                d="M2 2.9997C4.25622 6.18762 10.9917 12.4702 19.8839 12.0969C28.4111 11.739 28.1499 2 19.8839 2C12.8829 2 10.0627 8.93123 10.3281 15.6292C10.5935 22.3272 14.741 28.492 21.7751 28.492C28.4111 28.492 31.0654 21.4608 31.0654 14.3962C31.0654 21.1409 31.0654 32.3971 31.0654 39.0839C31.0654 43.1875 29.7382 46.4817 25.7899 46.4817C21.8415 46.4817 19.3093 42.7822 20.3484 39.0839C21.377 35.4232 25.0931 32.8573 38 26.5259"
                 stroke="black"
-                strokeWidth="4"
-                strokeLinecap="round"
+                stroke-width="3.81654"
                 style={{
                   strokeDasharray: `${segmentLength} 400`,
                   strokeDashoffset: pathPosition,
@@ -197,27 +196,24 @@ export default function PullToReload() {
               />
             </svg>
           </motion.div>
-          <motion.div
-            className="relative h-[114px] w-[300px] bg-gray-50 font-mono text-[14px]"
-            style={{ backgroundColor: backgroundColor }}
-          >
-            <div
+          <motion.div className="relative h-[114px] w-[240px] font-mono text-[14px]">
+            <motion.div
               className="absolute z-10 w-full text-center font-mono text-[14px] text-white"
-              style={{ marginTop: logoPosition }}
+              style={{ marginTop: logoPosition, color: thresholdLabelColor }}
             >
               {isAnimationRunning
                 ? 'Loading...'
                 : atThreshold
                   ? 'Release to reload'
                   : `${displayPercentage}%`}
-            </div>
+            </motion.div>
             <motion.div
               drag="y"
               dragConstraints={{ top: 0, bottom: 100 }}
               dragElastic={0.5}
               style={{ y: yDrag }}
               onDragEnd={handleDragEnd}
-              className="absolute z-50 h-[120px] w-full cursor-pointer items-center justify-center rounded-t-lg border-t-[1px] border-t-gray-200 bg-white text-center font-mono text-gray-500"
+              className="absolute z-50 h-[120px] w-full cursor-pointer items-center justify-center border-t-[1px] border-t-gray-200 bg-white text-center font-mono text-gray-500"
             >
               <div className="flex w-full justify-center pb-[24px] pt-2">
                 <div className="h-1 w-10 rounded-full bg-gray-200"></div>
@@ -291,7 +287,7 @@ export default function PullToReload() {
                     }}
                     className="select-none"
                   >
-                    PULL HERE
+                    DRAG HERE
                   </motion.div>
                 )}
               </AnimatePresence>
