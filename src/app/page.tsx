@@ -7,12 +7,19 @@ import FoldedEmail from '@/components/prototypes/folded-email'
 import AnimatedSwitch from '@/components/prototypes/animated-switch'
 import DynamicAIWidget from '@/components/prototypes/dynamic-ai-widget'
 import PullToReload from '@/components/prototypes/drag-to-reload'
-import TempFoldTitle from '@/components/prototypes/temp-fold-title'
+import RotatingCard from '@/components/prototypes/rotating-card'
 import Masonry from '@/components/templates/masonry'
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 
 const components = [
+  {
+    title: 'Rotating Card',
+    description: 'temp rotating card animation',
+    thumbnailSrc: '/static/gifs/cards.gif',
+    component: <RotatingCard />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
   {
     title: 'Pull To Reload',
     description: 'Pull-to-reload animation',
