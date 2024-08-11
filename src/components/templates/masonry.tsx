@@ -15,7 +15,7 @@ type MasonryProps = {
 
 const Masonry = ({ components }: MasonryProps) => {
   return (
-    <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+    <div className="columns-1 gap-4 sm:columns-2 lg:columns-4">
       {components.map((component, index) => (
         <div key={index} className="mb-4 break-inside-avoid">
           <Thumbnail

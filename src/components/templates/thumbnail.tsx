@@ -43,12 +43,8 @@ export const Thumbnail = ({
           alt={title}
           width={0}
           height={0}
-          className="h-auto w-full rounded-lg object-cover"
+          className="border-1 h-auto w-full rounded-lg border border-gray-100 object-cover"
         />
-        <div className="mt-2 font-jbm text-[16px] font-bold tracking-tight">
-          {title}
-        </div>
-        <p className="font-jbm text-[14px] text-gray-600">{description}</p>
       </div>
       <DrawerContent className="max-h-[90vh] overflow-hidden">
         <DrawerHeader>
