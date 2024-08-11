@@ -199,7 +199,7 @@ const Card: React.FC<CardProps> = ({
         style={{ transformStyle: 'preserve-3d', width: '100%', height: '100%' }}
       >
         <motion.div
-          className="backface-hidden b-[1px] absolute flex h-full w-full items-center justify-center rounded-xl border border-neutral-600 bg-neutral-800 p-4 shadow-sm transition-colors hover:bg-gray-50"
+          className="backface-hidden b-[1px] absolute flex h-full w-full items-center justify-center rounded-xl border border-neutral-700 bg-neutral-800 p-4 shadow-md"
           style={{ backfaceVisibility: 'hidden' }}
         >
           <svg
