@@ -7,24 +7,25 @@ import FoldedEmail from '@/components/prototypes/folded-email'
 import AnimatedSwitch from '@/components/prototypes/animated-switch'
 import DynamicAIWidget from '@/components/prototypes/dynamic-ai-widget'
 import PullToReload from '@/components/prototypes/drag-to-reload'
-import RotatingCard from '@/components/prototypes/rotating-card'
+import StackedCard from '@/components/prototypes/stacked-card'
+import StackedCardVer2 from '@/components/prototypes/stacked-card-2'
 import Masonry from '@/components/templates/masonry'
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 
 const components = [
   {
-    title: 'Rotating Card',
-    description: 'temp rotating card animation',
-    thumbnailSrc: '/static/gifs/cards.gif',
-    component: <RotatingCard />,
-    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  },
-  {
     title: 'Pull To Reload',
     description: 'Pull-to-reload animation',
     thumbnailSrc: '/static/gifs/pull_to_reload.gif',
     component: <PullToReload />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
+  {
+    title: 'Stacked Cards v2',
+    description: 'temp rotating card animation',
+    thumbnailSrc: '/static/gifs/cards.gif',
+    component: <StackedCardVer2 />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
@@ -61,6 +62,13 @@ const components = [
     description: 'AI-powered interactive widget',
     thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
     component: <DynamicAIWidget />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
+  {
+    title: 'Stacked Cards',
+    description: 'temp rotating card animation',
+    thumbnailSrc: '/static/gifs/stacked-cards.gif',
+    component: <StackedCard />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
 ]

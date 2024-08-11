@@ -39,6 +39,7 @@ export const Thumbnail = ({
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <div className="mb-4 cursor-pointer" onClick={() => setIsOpen(true)}>
         <Image
+          unoptimized
           src={thumbnailSrc}
           alt={title}
           width={0}
