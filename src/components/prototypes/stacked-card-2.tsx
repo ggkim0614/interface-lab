@@ -11,13 +11,33 @@ interface CardData {
 }
 
 const cards: CardData[] = [
-  { id: '1', title: 'Card 1', frontContent: 'Front 1', backContent: 'Back 1' },
-  { id: '2', title: 'Card 2', frontContent: 'Front 2', backContent: 'Back 2' },
-  { id: '3', title: 'Card 3', frontContent: 'Front 3', backContent: 'Back 3' },
-  { id: '4', title: 'Card 4', frontContent: 'Front 4', backContent: 'Back 4' },
+  {
+    id: '1',
+    title: 'CARD 1',
+    frontContent: '',
+    backContent: 'This is the content of the 1st card.',
+  },
+  {
+    id: '2',
+    title: 'CARD 2',
+    frontContent: '',
+    backContent: 'This is the content of the 2nd card.',
+  },
+  {
+    id: '3',
+    title: 'CARD 3',
+    frontContent: '',
+    backContent: 'This is the content of the 3rd card.',
+  },
+  {
+    id: '4',
+    title: 'CARD 4',
+    frontContent: '',
+    backContent: 'This is the content of the 4th card.',
+  },
 ]
 
-export default function StackedCardsVer2() {
+export default function StackedCardsVerTwo() {
   const [isSpread, setIsSpread] = useState(false)
   const [flippedCard, setFlippedCard] = useState<string | null>(null)
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
@@ -96,44 +116,51 @@ const Card: React.FC<CardProps> = ({
   flippedCard,
 }) => {
   const controls = useAnimation()
-  const baseX = (index - (totalCards - 1) / 2) * 30
+  const baseX = (index - (totalCards - 1) / 2) * 5
   const spreadX = (index - (totalCards - 1) / 2) * 100
 
   const stackRotation = (index - (totalCards - 1) / 2) * 5
+
+  const getRandomAngle = () => Math.random() * 20 - 15
+
+  const [randomAngle, setRandomAngle] = useState(getRandomAngle())
 
   useEffect(() => {
     if (isFlipped) {
       controls.start({
         x: 0,
-        y: [0, -160, 0],
-        rotateZ: [stackRotation / 2, 0, 0],
-        rotateY: [0, 0, 180],
-        scale: 1.2, // Scale up when flipped
+        y: 0,
+        rotateZ: [randomAngle / 2, 0, 0],
+        scale: 1.2,
         transition: {
-          type: 'easeInOut',
+          type: 'spring',
           duration: 0.2,
+          bounce: 0.3,
         },
       })
     } else if (isSpread) {
       controls.start({
         x: spreadX,
         y: 0,
-        rotateZ: stackRotation / 2,
-        rotateY: 0,
+        rotateZ: randomAngle / 2,
+        rotateY: -180,
         scale: 1, // Normal scale when spread
         transition: {
           type: 'spring',
           stiffness: 300,
           damping: 20,
+          bounce: 0.3,
         },
       })
     } else {
+      const newAngle = getRandomAngle()
+      setRandomAngle(newAngle)
       controls.start({
         x: baseX,
         y: 0,
-        rotateZ: stackRotation,
+        rotateZ: newAngle,
         rotateY: 0,
-        scale: 1, // Normal scale when stacked
+        scale: 1,
         transition: {
           type: 'spring',
           stiffness: 300,
@@ -162,7 +189,7 @@ const Card: React.FC<CardProps> = ({
         top: 'calc(50% - 100px)',
       }}
       animate={controls}
-      whileHover={{ y: isSpread && !isFlipped ? -20 : 0 }}
+      whileHover={{ y: isSpread && !isFlipped ? -30 : 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       onClick={onClick}
       onHoverStart={onHover}
@@ -172,21 +199,31 @@ const Card: React.FC<CardProps> = ({
         style={{ transformStyle: 'preserve-3d', width: '100%', height: '100%' }}
       >
         <motion.div
-          className="backface-hidden b-[1px] absolute h-full w-full rounded-xl border border-gray-200 bg-white p-4 shadow-sm"
+          className="backface-hidden b-[1px] absolute flex h-full w-full items-center justify-center rounded-xl border border-neutral-600 bg-neutral-800 p-4 shadow-sm transition-colors hover:bg-gray-50"
           style={{ backfaceVisibility: 'hidden' }}
         >
-          <h3 className="font-jbm text-lg font-bold">{title}</h3>
-          <p className="text-sm">{frontContent}</p>
+          <svg
+            width="39"
+            height="49"
+            viewBox="0 0 39 49"
+            fill="transparent"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 2.9997C4.25622 6.18762 10.9917 12.4702 19.8839 12.0969C28.4111 11.739 28.1499 2 19.8839 2C12.8829 2 10.0627 8.93123 10.3281 15.6292C10.5935 22.3272 14.741 28.492 21.7751 28.492C28.4111 28.492 31.0654 21.4608 31.0654 14.3962C31.0654 21.1409 31.0654 32.3971 31.0654 39.0839C31.0654 43.1875 29.7382 46.4817 25.7899 46.4817C21.8415 46.4817 19.3093 42.7822 20.3484 39.0839C21.377 35.4232 25.0931 32.8573 38 26.5259"
+              stroke="white"
+              stroke-width="3.81654"
+            />
+          </svg>
         </motion.div>
         <motion.div
-          className="backface-hidden b-[1px] absolute h-full w-full rounded-xl border border-blue-300 bg-blue-100 p-4 shadow-lg"
+          className="backface-hidden b-[1px] absolute h-full w-full rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm"
           style={{
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
           }}
         >
-          <h3 className="font-jbm text-lg font-bold">{title}</h3>
-          <p className="text-sm">{backContent}</p>
+          <p className="font-jbm text-sm text-gray-600">{backContent}</p>
         </motion.div>
       </motion.div>
     </motion.div>
