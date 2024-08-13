@@ -64,13 +64,13 @@ const components = [
     component: <DynamicAIWidget />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
-  {
-    title: 'Stacked Cards',
-    description: 'temp rotating card animation',
-    thumbnailSrc: '/static/gifs/stacked-cards.gif',
-    component: <StackedCard />,
-    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  },
+  // {
+  //   title: 'Stacked Cards',
+  //   description: 'temp rotating card animation',
+  //   thumbnailSrc: '/static/gifs/stacked-cards.gif',
+  //   component: <StackedCard />,
+  //   stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  // },
 ]
 
 export default function Home() {

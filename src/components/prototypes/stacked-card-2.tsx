@@ -35,6 +35,12 @@ const cards: CardData[] = [
     frontContent: '',
     backContent: 'This is the content of the 4th card.',
   },
+  {
+    id: '5',
+    title: 'CARD 5',
+    frontContent: '',
+    backContent: 'This is the content of the 5th card.',
+  },
 ]
 
 export default function StackedCardsVerTwo() {
