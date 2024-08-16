@@ -1,6 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Inter as FontSans } from 'next/font/google'
+import dynamic from 'next/dynamic'
+
+const DesktopOnlyWrapper = dynamic(() => import('./DesktopOnlyWrapper'), {
+  ssr: false,
+})
 
 import { cn } from '@/lib/utils'
 
@@ -22,7 +27,9 @@ export default function RootLayout({
         fontSans.variable
       )}
     >
-      <body>{children}</body>
+      <DesktopOnlyWrapper>
+        <body>{children}</body>
+      </DesktopOnlyWrapper>
     </html>
   )
 }
