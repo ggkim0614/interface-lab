@@ -7,7 +7,7 @@ import FoldedEmail from '@/components/prototypes/folded-email'
 import AnimatedSwitch from '@/components/prototypes/animated-switch'
 import DynamicAIWidget from '@/components/prototypes/dynamic-ai-widget'
 import PullToReload from '@/components/prototypes/drag-to-reload'
-import StackedCard from '@/components/prototypes/stacked-card'
+import StickerComponent from '@/components/prototypes/sticker'
 import StackedCardVer2 from '@/components/prototypes/stacked-card-2'
 import Masonry from '@/components/templates/masonry'
 import Footer from '@/components/footer'
@@ -64,13 +64,13 @@ const components = [
     component: <DynamicAIWidget />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
-  // {
-  //   title: 'Stacked Cards',
-  //   description: 'temp rotating card animation',
-  //   thumbnailSrc: '/static/gifs/stacked-cards.gif',
-  //   component: <StackedCard />,
-  //   stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  // },
+  {
+    title: 'Sticker',
+    description: 'temp rotating card animation',
+    thumbnailSrc: '/static/gifs/switch.gif',
+    component: <StickerComponent />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
 ]
 
 export default function Home() {
