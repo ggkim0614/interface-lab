@@ -26,6 +26,9 @@ export default function RootLayout({
         fontSans.variable
       )}
     >
+      <head>
+        <link rel="icon" href="./favicon.png" sizes="any" />
+      </head>
       <body>
         <DesktopOnlyWrapper>{children}</DesktopOnlyWrapper>
       </body>
@@ -39,4 +42,7 @@ export const metadata: Metadata = {
     default: 'Interface Lab',
   },
   description: 'Shelter for design explorations and prototypes',
+  icons: {
+    icon: './favicon.png',
+  },
 }

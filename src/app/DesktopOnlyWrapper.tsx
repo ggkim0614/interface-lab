@@ -26,8 +26,10 @@ const DesktopOnlyWrapper: React.FC<DesktopOnlyWrapperProps> = ({
     return (
       <div className="flex h-screen w-full items-center justify-center bg-gray-100 p-4 text-center">
         <div>
-          <h1 className="mb-4 text-2xl font-bold">Desktop View Only</h1>
-          <p className="text-gray-600">
+          <h1 className="mb-4 font-jbm text-2xl font-bold tracking-tighter">
+            DESKTOP VIEW ONLY
+          </h1>
+          <p className="font-jbm text-gray-600">
             Please view this project on a larger screen for the best experience.
           </p>
         </div>
