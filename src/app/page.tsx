@@ -29,6 +29,13 @@ const components = [
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
+    title: 'Sticker',
+    description: 'temp rotating card animation',
+    thumbnailSrc: '/static/images/construction.png',
+    component: <StickerComponent />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
+  {
     title: 'Wallet',
     description: 'Interactive wallet component',
     thumbnailSrc: '/static/gifs/wallet.gif',
@@ -50,6 +57,7 @@ const components = [
     component: <SearchInput />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
+
   {
     title: 'Animated Switch',
     description: 'Switch with smooth animation',
@@ -60,15 +68,8 @@ const components = [
   {
     title: 'Dynamic AI Widget',
     description: 'AI-powered interactive widget',
-    thumbnailSrc: '/static/gifs/dynamic_island_protopie.gif',
+    thumbnailSrc: '/static/images/construction.png',
     component: <DynamicAIWidget />,
-    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  },
-  {
-    title: 'Sticker',
-    description: 'temp rotating card animation',
-    thumbnailSrc: '/static/gifs/switch.gif',
-    component: <StickerComponent />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
 ]
