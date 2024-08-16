@@ -16,7 +16,7 @@ import Navbar from '@/components/navbar'
 const components = [
   {
     title: 'Pull To Reload',
-    description: 'Pull-to-reload animation',
+    description: 'Drag down the knob and ',
     thumbnailSrc: '/static/gifs/pull_to_reload.gif',
     component: <PullToReload />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
@@ -39,7 +39,7 @@ const components = [
   {
     title: 'Folded Email',
     description: 'Email component with folding animation',
-    thumbnailSrc: '/static/gifs/folded_email.gif',
+    thumbnailSrc: '/static/gifs/ver2.gif',
     component: <FoldedEmail />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },

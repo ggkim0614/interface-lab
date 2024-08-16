@@ -168,9 +168,9 @@ const Card: React.FC<CardProps> = ({
         rotateY: 0,
         scale: 1,
         transition: {
-          type: 'spring',
-          stiffness: 300,
-          damping: 30,
+          type: 'easeOut',
+          // stiffness: 300,
+          // damping: 30,
         },
       })
     }
@@ -187,7 +187,13 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <motion.div
-      className={twMerge('absolute h-[200px] w-[200px] cursor-pointer')}
+      className={twMerge(
+        'absolute h-[200px] w-[200px] cursor-pointer',
+        isHovered && !isFlipped && isSpread
+          ? 'rounded-xl outline outline-8 outline-blue-400'
+          : '',
+        isFlipped ? 'rounded-xl shadow-lg' : ''
+      )}
       style={{
         zIndex: isFlipped ? 10 : totalCards - index,
         transformStyle: 'preserve-3d',
