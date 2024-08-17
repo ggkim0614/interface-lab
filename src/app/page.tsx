@@ -65,13 +65,13 @@ const components = [
     component: <AnimatedSwitch />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
-  {
-    title: 'Dynamic AI Widget',
-    description: 'AI-powered interactive widget',
-    thumbnailSrc: '/static/images/construction.png',
-    component: <DynamicAIWidget />,
-    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  },
+  // {
+  //   title: 'Dynamic AI Widget',
+  //   description: 'AI-powered interactive widget',
+  //   thumbnailSrc: '/static/images/construction.png',
+  //   component: <DynamicAIWidget />,
+  //   stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  // },
 ]
 
 export default function Home() {
