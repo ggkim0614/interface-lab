@@ -49,19 +49,26 @@ export const Thumbnail = ({
       </div>
       <DrawerContent className="max-h-[90vh] overflow-hidden">
         <DrawerHeader>
-          <DrawerTitle className="font-jbm font-bold">{title}</DrawerTitle>
-          <DrawerDescription className="font-jbm">
-            {description}
-          </DrawerDescription>
-          <div className="flex w-full flex-wrap items-center justify-center gap-2 sm:justify-start">
-            {stack.map((stack, index) => (
-              <div
-                key={index}
-                className="rounded-md bg-slate-200 px-[10px] py-[8px] font-jbm text-[12px] leading-none text-slate-600"
-              >
-                {stack}
+          <div className="flex">
+            <span>
+              <DrawerTitle className="font-jbm font-bold">{title}</DrawerTitle>
+              <DrawerDescription className="font-jbm">
+                {description}
+              </DrawerDescription>
+              <div className="flex w-full flex-wrap items-center justify-center gap-2 sm:justify-start">
+                {stack.map((stack, index) => (
+                  <div
+                    key={index}
+                    className="rounded-md bg-slate-200 px-[10px] py-[8px] font-jbm text-[12px] leading-none text-slate-600"
+                  >
+                    {stack}
+                  </div>
+                ))}
               </div>
-            ))}
+            </span>
+            <DrawerClose asChild className="w-fit">
+              <Button variant="outline">Close</Button>
+            </DrawerClose>
           </div>
         </DrawerHeader>
         <div
@@ -71,11 +78,7 @@ export const Thumbnail = ({
         >
           {fullComponent}
         </div>
-        <DrawerFooter>
-          <DrawerClose asChild>
-            <Button variant="outline">Close</Button>
-          </DrawerClose>
-        </DrawerFooter>
+        <DrawerFooter></DrawerFooter>
       </DrawerContent>
     </Drawer>
   )
