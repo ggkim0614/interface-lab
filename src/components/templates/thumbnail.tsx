@@ -12,6 +12,7 @@ import {
   DrawerClose,
 } from '@/components/ui/drawer'
 import { Button } from '@/components/ui/button'
+import { X } from 'lucide-react'
 
 type ComponentThumbnailProps = {
   title: string
@@ -48,8 +49,8 @@ export const Thumbnail = ({
         />
       </div>
       <DrawerContent className="max-h-[90vh] overflow-hidden">
-        <DrawerHeader>
-          <div className="flex">
+        <DrawerHeader className="">
+          <div className="flex justify-between">
             <span>
               <DrawerTitle className="font-jbm font-bold">{title}</DrawerTitle>
               <DrawerDescription className="font-jbm">
@@ -66,8 +67,14 @@ export const Thumbnail = ({
                 ))}
               </div>
             </span>
-            <DrawerClose asChild className="w-fit">
-              <Button variant="outline">Close</Button>
+            <DrawerClose asChild>
+              <Button
+                className="text-gray-500 hover:bg-red-50 hover:text-red-600"
+                variant="ghost"
+                size="icon"
+              >
+                <X className="h-4 w-4" />
+              </Button>
             </DrawerClose>
           </div>
         </DrawerHeader>
