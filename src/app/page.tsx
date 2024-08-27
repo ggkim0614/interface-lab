@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Wallet from '@/components/prototypes/wallet'
 import SearchInput from '@/components/prototypes/search-input'
-import FoldedEmail from '@/components/prototypes/folded-email'
+import TriFoldedPaper from '@/components/prototypes/tri-folded-paper'
 import AnimatedSwitch from '@/components/prototypes/animated-switch'
 import DynamicAIWidget from '@/components/prototypes/dynamic-ai-widget'
 import PullToReload from '@/components/prototypes/drag-to-reload'
@@ -12,6 +12,7 @@ import StackedCardVer2 from '@/components/prototypes/stacked-card-2'
 import Masonry from '@/components/templates/masonry'
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
+import FoldedEmail from '@/components/prototypes/folded-email'
 
 const components = [
   {
@@ -47,7 +48,7 @@ const components = [
     title: 'Folded Email',
     description: 'Email component with folding animation',
     thumbnailSrc: '/static/gifs/ver2.gif',
-    component: <FoldedEmail />,
+    component: <TriFoldedPaper />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
@@ -63,6 +64,13 @@ const components = [
     description: 'Switch with smooth animation',
     thumbnailSrc: '/static/gifs/switch.gif',
     component: <AnimatedSwitch />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
+  },
+  {
+    title: 'Folded Email',
+    description: 'temp description for folded email',
+    thumbnailSrc: '/static/gifs/switch.gif',
+    component: <FoldedEmail />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   // {
