@@ -5,7 +5,6 @@ import Wallet from '@/components/prototypes/wallet'
 import SearchInput from '@/components/prototypes/search-input'
 import TriFoldedPaper from '@/components/prototypes/tri-folded-paper'
 import AnimatedSwitch from '@/components/prototypes/animated-switch'
-import DynamicAIWidget from '@/components/prototypes/dynamic-ai-widget'
 import PullToReload from '@/components/prototypes/drag-to-reload'
 import StickerComponent from '@/components/prototypes/sticker'
 import StackedCardVer2 from '@/components/prototypes/stacked-card-2'
@@ -69,17 +68,10 @@ const components = [
   {
     title: 'Folded Email',
     description: 'temp description for folded email',
-    thumbnailSrc: '/static/gifs/switch.gif',
+    thumbnailSrc: '/static/gifs/folded_email.gif',
     component: <FoldedEmail />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
-  // {
-  //   title: 'Dynamic AI Widget',
-  //   description: 'AI-powered interactive widget',
-  //   thumbnailSrc: '/static/images/construction.png',
-  //   component: <DynamicAIWidget />,
-  //   stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
-  // },
 ]
 
 export default function Home() {
