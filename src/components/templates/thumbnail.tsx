@@ -49,9 +49,9 @@ export const Thumbnail = ({
         />
       </div>
       <DrawerContent className="max-h-[90vh] overflow-hidden">
-        <DrawerHeader className="">
+        <DrawerHeader>
           <div className="flex justify-between">
-            <span>
+            <span className="flex flex-col gap-2">
               <DrawerTitle className="font-jbm font-bold">{title}</DrawerTitle>
               <DrawerDescription className="font-jbm">
                 {description}
