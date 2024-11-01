@@ -34,16 +34,16 @@
     "vaul": "^0.9.9"
   },
   "devDependencies": {
-    "@types/node": "^22.8.1",
+    "@types/node": "^22.8.6",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@typescript-eslint/parser": "^8.11.0",
-    "eslint": "8.57.0",
-    "eslint-config-next": "^14.2.16",
+    "@typescript-eslint/parser": "^8.12.2",
+    "eslint": "9.13.0",
+    "eslint-config-next": "^15.0.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "postcss": "^8.4.47",
@@ -52,7 +52,7 @@
     "tailwindcss": "^3.4.14",
     "turbo": "^2.2.3",
     "typescript": "^5.6.3",
-    "vercel": "^35.2.4"
+    "vercel": "^37.14.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mdx}": [
