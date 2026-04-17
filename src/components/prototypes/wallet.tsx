@@ -25,6 +25,9 @@ import {
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
+const CARD_SHADOW =
+  '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)'
+
 export default function Wallet() {
   const [isCardActive, setIsCardActive] = useState(false)
 
@@ -87,8 +90,7 @@ export default function Wallet() {
             <Button
               className="flex h-[56px] w-full gap-2 rounded-[14px] border border-gray-700 bg-gray-800 text-lg tracking-tight hover:bg-gray-600"
               style={{
-                boxShadow:
-                  '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
+                boxShadow: CARD_SHADOW,
               }}
             >
               <div>Send Money to</div>
@@ -141,8 +143,7 @@ export default function Wallet() {
               alt="Apple"
               className="absolute translate-y-[144px] rounded-[18px] shadow-sm"
               style={{
-                boxShadow:
-                  '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
+                boxShadow: CARD_SHADOW,
               }}
             />
 
@@ -153,8 +154,7 @@ export default function Wallet() {
               alt="Kakao"
               className="absolute translate-y-[108px] rounded-[18px] shadow-sm"
               style={{
-                boxShadow:
-                  '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
+                boxShadow: CARD_SHADOW,
               }}
             />
             <Image
@@ -164,8 +164,7 @@ export default function Wallet() {
               alt="Boa"
               className="absolute translate-y-[72px] rounded-[18px] shadow-sm"
               style={{
-                boxShadow:
-                  '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
+                boxShadow: CARD_SHADOW,
               }}
             />
             <Image
@@ -175,8 +174,7 @@ export default function Wallet() {
               alt="Amex"
               className="absolute translate-y-[36px] rounded-[18px] shadow-sm"
               style={{
-                boxShadow:
-                  '0px 8px 8px 0 rgba(0,0,0,0.1), 0px 4px 4px 0 rgba(0,0,0,0.1), 0px 2px 2px 0 rgba(0,0,0,0.1)',
+                boxShadow: CARD_SHADOW,
               }}
             />
 
