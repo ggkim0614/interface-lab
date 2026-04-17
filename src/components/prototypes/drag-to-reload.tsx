@@ -53,10 +53,6 @@ export default function PullToReload() {
     }
   })
 
-  useMotionValueEvent(pathPosition, 'change', (latest) => {
-    console.log('Current pathPosition:', latest)
-  })
-
   useMotionValueEvent(dragPercentage, 'change', (latest) => {
     setDisplayPercentage(Math.round(latest))
   })
@@ -118,7 +114,7 @@ export default function PullToReload() {
   }
 
   useEffect(() => {
-    let timer: any
+    let timer: ReturnType<typeof setTimeout>
     if (animationFinished) {
       setShowCompletion(true)
       timer = setTimeout(() => {
@@ -138,18 +134,9 @@ export default function PullToReload() {
     }
   }, [runAnimationCycle])
 
-  useMotionValueEvent(pathPosition, 'change', (latest) => {
-    console.log('Current pathPosition:', latest)
-  })
-
   useMotionValueEvent(segmentLengthValue, 'change', (latest) => {
-    console.log('Current segmentLength:', latest)
     setSegmentLength(latest)
   })
-
-  useEffect(() => {
-    console.log('State segmentLength:', segmentLength)
-  }, [segmentLength])
 
   return (
     <Section
@@ -176,7 +163,7 @@ export default function PullToReload() {
               <motion.path
                 d="M2 2.9997C4.25622 6.18762 10.9917 12.4702 19.8839 12.0969C28.4111 11.739 28.1499 2 19.8839 2C12.8829 2 10.0627 8.93123 10.3281 15.6292C10.5935 22.3272 14.741 28.492 21.7751 28.492C28.4111 28.492 31.0654 21.4608 31.0654 14.3962C31.0654 21.1409 31.0654 32.3971 31.0654 39.0839C31.0654 43.1875 29.7382 46.4817 25.7899 46.4817C21.8415 46.4817 19.3093 42.7822 20.3484 39.0839C21.377 35.4232 25.0931 32.8573 38 26.5259"
                 stroke="black"
-                stroke-width="3.81654"
+                strokeWidth="3.81654"
                 style={
                   {
                     opacity: pathOpacity,
@@ -187,7 +174,7 @@ export default function PullToReload() {
                 ref={pathRef}
                 d="M2 2.9997C4.25622 6.18762 10.9917 12.4702 19.8839 12.0969C28.4111 11.739 28.1499 2 19.8839 2C12.8829 2 10.0627 8.93123 10.3281 15.6292C10.5935 22.3272 14.741 28.492 21.7751 28.492C28.4111 28.492 31.0654 21.4608 31.0654 14.3962C31.0654 21.1409 31.0654 32.3971 31.0654 39.0839C31.0654 43.1875 29.7382 46.4817 25.7899 46.4817C21.8415 46.4817 19.3093 42.7822 20.3484 39.0839C21.377 35.4232 25.0931 32.8573 38 26.5259"
                 stroke="black"
-                stroke-width="3.81654"
+                strokeWidth="3.81654"
                 style={{
                   strokeDasharray: `${segmentLength} 400`,
                   strokeDashoffset: pathPosition,

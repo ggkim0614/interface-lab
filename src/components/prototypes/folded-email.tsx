@@ -261,7 +261,7 @@ export default function FoldedEmail() {
                         Bookmark
                       </button>
                       <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] border border-red-100 bg-red-50 text-[14px] font-medium text-red-500 transition hover:bg-red-100">
-                        <Trash className="strokeWidth={2.5} h-[14px] w-[14px] opacity-50" />
+                        <Trash className="h-[14px] w-[14px] opacity-50" strokeWidth={2.5} />
                         Delete
                       </button>
                       <button className="flex h-[40px] items-center justify-center gap-[4px] rounded-[16px] bg-blue-500 text-[14px] font-medium text-white transition hover:bg-blue-600">

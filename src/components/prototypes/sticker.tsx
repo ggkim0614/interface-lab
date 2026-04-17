@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Section from '../templates/production'
 
@@ -10,11 +10,11 @@ interface StickerProps {
   height?: number
 }
 
-const Sticker: React.FC<StickerProps> = ({
+const Sticker = ({
   children,
   width = 200,
   height = 200,
-}) => {
+}: StickerProps) => {
   const [isDragging, setIsDragging] = useState(false)
   const [canHover, setCanHover] = useState(true)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -38,16 +38,6 @@ const Sticker: React.FC<StickerProps> = ({
     }, 500)
   }
 
-  const handleHoverStart = () => {
-    if (canHover) {
-      // Apply hover styles
-    }
-  }
-
-  const handleHoverEnd = () => {
-    // Reset hover styles
-  }
-
   return (
     <motion.div
       style={{ width, height }}
@@ -55,8 +45,6 @@ const Sticker: React.FC<StickerProps> = ({
       dragMomentum={false}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      onHoverStart={handleHoverStart}
-      onHoverEnd={handleHoverEnd}
       animate={
         isDragging
           ? {
