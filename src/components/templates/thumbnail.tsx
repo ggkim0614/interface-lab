@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import {
   Drawer,
   DrawerContent,
@@ -31,6 +31,33 @@ export const Thumbnail = ({
 }: ComponentThumbnailProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const isVideo = thumbnailSrc.endsWith('.mp4')
+  const posterSrc = thumbnailSrc.replace(/\.mp4$/, '.jpg')
+
+  // Only play a thumbnail while it is actually on screen. This keeps the
+  // homepage from decoding several looping videos at once (CPU/battery),
+  // and — with preload="none" — avoids downloading offscreen clips at all.
+  useEffect(() => {
+    if (!isVideo) return
+    const el = videoRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            el.play().catch(() => {})
+          } else {
+            el.pause()
+          }
+        }
+      },
+      { threshold: 0.25 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [isVideo])
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     e.stopPropagation()
@@ -39,14 +66,28 @@ export const Thumbnail = ({
   return (
     <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <div className="mb-4 cursor-pointer" onClick={() => setIsOpen(true)}>
-        <Image
-          unoptimized
-          src={thumbnailSrc}
-          alt={title}
-          width={0}
-          height={0}
-          className="border-1 h-auto w-full rounded-lg border border-gray-100 object-cover"
-        />
+        {isVideo ? (
+          <video
+            ref={videoRef}
+            src={thumbnailSrc}
+            poster={posterSrc}
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-label={title}
+            className="h-auto w-full rounded-lg border border-gray-100 object-cover"
+          />
+        ) : (
+          <Image
+            unoptimized
+            src={thumbnailSrc}
+            alt={title}
+            width={0}
+            height={0}
+            className="h-auto w-full rounded-lg border border-gray-100 object-cover"
+          />
+        )}
       </div>
       <DrawerContent className="max-h-[90vh] overflow-hidden">
         <DrawerHeader>
