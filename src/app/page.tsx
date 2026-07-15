@@ -18,14 +18,14 @@ const components = [
     title: 'Pull To Reload',
     description:
       'Click and drag the knob/handle down to see the loading animation',
-    thumbnailSrc: '/static/gifs/pull_to_reload.gif',
+    thumbnailSrc: '/static/videos/pull_to_reload.mp4',
     component: <PullToReload />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Stacked Cards v2',
     description: 'Hover over the stack of cards to see the animation',
-    thumbnailSrc: '/static/gifs/cards.gif',
+    thumbnailSrc: '/static/videos/cards.mp4',
     component: <StackedCardVer2 />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
@@ -39,7 +39,7 @@ const components = [
   {
     title: 'Wallet',
     description: 'Click on the first card to see the animation',
-    thumbnailSrc: '/static/gifs/wallet.gif',
+    thumbnailSrc: '/static/videos/wallet.mp4',
     component: <Wallet />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
@@ -47,14 +47,14 @@ const components = [
   {
     title: 'Folded Email',
     description: 'Click or drag to see the folding animation',
-    thumbnailSrc: '/static/gifs/ver2.gif',
+    thumbnailSrc: '/static/videos/ver2.mp4',
     component: <TriFoldedPaper />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
   {
     title: 'Search Input',
     description: 'Click or CMD+K to see the animation',
-    thumbnailSrc: '/static/gifs/dynamic_input.gif',
+    thumbnailSrc: '/static/videos/dynamic_input.mp4',
     component: <SearchInput />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
@@ -62,7 +62,7 @@ const components = [
   {
     title: 'Animated Switch',
     description: 'Hover and click to see the switch animation',
-    thumbnailSrc: '/static/gifs/switch.gif',
+    thumbnailSrc: '/static/videos/switch.mp4',
     component: <AnimatedSwitch />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },
@@ -70,7 +70,7 @@ const components = [
     title: 'Folded Email',
     description:
       'Drag the email component up and down to see the folding/unfolding animation',
-    thumbnailSrc: '/static/gifs/folded_email.gif',
+    thumbnailSrc: '/static/videos/folded_email.mp4',
     component: <FoldedEmail />,
     stack: ['React', 'Framer Motion', 'TailwindCSS', 'Shadcn'],
   },

@@ -129,7 +129,7 @@ const Card: React.FC<CardProps> = ({
         rotateY: [0, 0, 180],
         scale: 1.5,
         transition: {
-          type: 'easeInOut',
+          ease: 'easeInOut',
           duration: 0.4,
           scale: {
             duration: 0.1,

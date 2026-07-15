@@ -2,11 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
-import dynamic from 'next/dynamic'
-
-const DesktopOnlyWrapper = dynamic(() => import('./DesktopOnlyWrapper'), {
-  ssr: false,
-})
+import DesktopOnlyWrapper from './DesktopOnlyWrapper'
 
 const fontSans = FontSans({
   subsets: ['latin'],
