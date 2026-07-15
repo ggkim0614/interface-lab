@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Section from '../templates/production'
@@ -137,7 +138,7 @@ export default function SearchInput() {
                             y: 0,
                             transition: {
                               delay: 0.01 * i + 0.025,
-                              type: 'easeOut',
+                              ease: 'easeOut',
                             },
                           }}
                           exit={{
@@ -150,7 +151,7 @@ export default function SearchInput() {
                           className="group/item flex cursor-pointer items-center justify-between rounded-[14px] bg-white px-2 py-2 text-base font-normal text-gray-700 hover:bg-blue-50 hover:font-medium"
                         >
                           {item.text}
-                          <a
+                          <Link
                             className="invisible flex items-center rounded-[8px] bg-blue-100 px-2 py-1 transition hover:bg-blue-200 group-hover/item:visible"
                             href="/"
                           >
@@ -158,7 +159,7 @@ export default function SearchInput() {
                               Go
                             </span>
                             <ArrowRight className="group-hover/text-blue-800 w-[14px] text-blue-600 opacity-40" />
-                          </a>
+                          </Link>
                         </motion.div>
                       ))}
                     </motion.div>

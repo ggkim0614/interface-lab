@@ -8,11 +8,12 @@ import {
   useMotionValueEvent,
   useTransform,
   type MotionStyle,
+  type Variants,
 } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import Section from '../templates/production'
 
-const variants = {
+const variants: Variants = {
   collapsed: {
     scale: 1,
     borderRadius: 24,

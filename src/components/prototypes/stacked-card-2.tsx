@@ -168,7 +168,7 @@ const Card: React.FC<CardProps> = ({
         rotateY: 0,
         scale: 1,
         transition: {
-          type: 'easeOut',
+          ease: 'easeOut',
           // stiffness: 300,
           // damping: 30,
         },

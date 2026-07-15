@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence, useAnimation } from 'framer-motion'
+import {
+  motion,
+  AnimatePresence,
+  useAnimation,
+  type TargetAndTransition,
+} from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
 import Section from '../templates/production'
 
@@ -122,7 +127,7 @@ const Card: React.FC<CardProps> = ({
   const stackRotation = (index - (totalCards - 1) / 2) * 5
 
   useEffect(() => {
-    const flipAnimation = {
+    const flipAnimation: TargetAndTransition = {
       x: isFlipped ? 0 : isSpread ? spreadX : baseX,
       y: [0, -180, 0],
       rotateZ: [
@@ -133,7 +138,7 @@ const Card: React.FC<CardProps> = ({
       rotateY: isFlipped ? [0, 0, 180] : [180, 0, 0],
       scale: [1, 0.4, isFlipped ? 1.2 : 1],
       transition: {
-        type: 'easeInOut',
+        ease: 'easeInOut',
         duration: 0.2,
       },
     }
