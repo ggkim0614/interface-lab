@@ -12,8 +12,17 @@ import Masonry from '@/components/templates/masonry'
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import FoldedEmail from '@/components/prototypes/folded-email'
+import DoubleFoldedPaper from '@/components/prototypes/double-folded-paper'
 
 const components = [
+  {
+    title: 'Double Folded Paper',
+    description:
+      'Tap to lift one fold at a time, or press and hold to let it fall open',
+    thumbnailSrc: '/static/videos/double_folded_paper.mp4',
+    component: <DoubleFoldedPaper />,
+    stack: ['React', 'Framer Motion', 'TailwindCSS'],
+  },
   {
     title: 'Pull To Reload',
     description:
