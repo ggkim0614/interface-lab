@@ -272,7 +272,8 @@ export default function DoubleFoldedPaper() {
   // A flap turned side-on to the light is the darkest point of its travel.
   const shadeH = useTransform(foldH, (v) => 0.34 * Math.sin(Math.PI * v))
   const shadeV = useTransform(foldV, (v) => 0.28 * Math.sin(Math.PI * v))
-  const shadeNone = useTransform(progress, () => 0)
+  // Top-left never turns, so it never catches the light differently.
+  const noShade = useMotionValue(0)
   const shadeBR = useTransform([foldH, foldV], ([h = 0, v = 0]: number[]) =>
     Math.min(0.44, 0.34 * Math.sin(Math.PI * h) + 0.24 * Math.sin(Math.PI * v))
   )
@@ -491,7 +492,7 @@ export default function DoubleFoldedPaper() {
                 just its hinge running back to zero. */}
             <Panel
               quadrant="tl"
-              shade={shadeNone}
+              shade={noShade}
               className="left-0 top-0"
               style={{ z: 0 }}
             >
