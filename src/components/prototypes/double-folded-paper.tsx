@@ -453,7 +453,7 @@ export default function DoubleFoldedPaper() {
       title="Double Folded Paper"
       description="Tap to lift one fold at a time, press and hold to let it fall open, or drag to work the folds by hand."
       labels={['React', 'Framer Motion', 'TailwindCSS']}
-      frameHeight={600}
+      frameHeight={500}
     >
       <div className="flex select-none flex-col items-center gap-10">
         <div
